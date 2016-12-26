@@ -1,0 +1,194 @@
+@import "../bower_components/normalize-css/normalize.css";
+@import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "../bower_components/neat/app/assets/stylesheets/_neat.scss";
+
+// = Simppler base styles
+// Everything else should be imported from a modular partial
+//== Colors - Simppler Palette
+//=== primary blues
+$drkblue:#101C2E; //rgba(16, 28, 46, 1)
+$medblue:#123f88; //rgba(18, 63, 136, 1)
+$lightblue:#90b4f0;//rgba(144, 180, 240, 1)
+$simpplerblue:#1c71ff; // rgba(28, 113, 255, 1)   //primary color
+//=== accent colors
+$orange: #cc5702; // rgba(204, 87, 2, 1)
+$purple:#5a4e99; // rgba(90, 78, 153, 1)
+$lightgold:#ffb95b; // rgba(255, 185, 91, 1)
+$green: #95CC02; // rgba(149, 204, 2, 1)
+
+//== Typeography
+//=== Typefaces
+$header-face:'Francois One', sans-serif;
+$body-face: 'Open Sans', sans-serif;
+
+//=== Body face weights NOTE: make sure the weight is included in GoogleFonts link before use!
+$body-light:300;
+$body-bold:600;
+$body-reg:400;
+
+//=== baseline grid
+// ALL vertical spacing (i.e. heights, min-heights, top and bottom padding and margins, top) should be in units
+// of the baseline grid.
+$baseline-grid-size: 6px;
+$baseline: $baseline-grid-size; // a less verbose helper var. Why two? Readability.
+
+//=== Standard type sizes
+$body-type-size:16px; //this must be in px to be the basis for all rems
+$body-type-leading: $baseline-grid-size * 4;
+$page-title-size: rem(40px);
+$page-title-leading: $baseline-grid-size * 8;
+$page-subtitle-size: rem(24px);
+$page-subtitle-leading: $baseline-grid-size * 5;
+$page-subsection-size: rem(14px);
+$page-subsection-leading: $baseline-grid-size * 3;
+$page-caption-text: rem(13px);
+$page-caption-leading: $baseline-grid-size * 3;
+$card-title-size: rem(26px);
+$card-title-leading: $baseline-grid-size * 5;
+$card-subtitle-size: rem(14px);
+$card-subtitle-leading: $baseline-grid-size * 3;
+$button-type-size: rem(14px);
+$button-type-leading: $baseline-grid-size * 4;
+
+//== Background images
+//=== Dotscreen background images
+// These don't require anything but the image to repeated as needed. Just set the background-image to the one you want
+// and you're good to go.
+$simpplerblue-dots: url(../img/simpblue_dot.png);
+$lightblue-dots: url(../img/lightblue_dot.png);
+$medblue-dots: url(../img/medblue_dot.png);
+$drkblue-dots: url(../img/drkblue_dot.png);
+$purple-dots: url(../img/purple_dot.png);
+$orange-dots: url(../img/orange_dot.png);
+$lightgold-dots: url(../img/lightgold_dot.png);
+$green-dots: url(../img/green_dot.png);
+
+//== Global Variables
+$link-color: $lightgold;
+$simppler-border-radius: 1px !default;
+$dropdown-padding: rem(18px);
+$transition-animation: 0.15s ease-in-out;
+$table-border-padding: 12px;
+$table-cell-padding: 6px;
+
+//= Global Styles
+*{
+  box-sizing:border-box;
+}
+
+body{
+  font-size:$body-type-size;
+  font-family: $body-face;
+  color:$drkblue;
+  line-height: $body-type-leading;
+  padding: ($baseline * 3);
+}
+
+//= Style guide elements
+//== Page Title
+.page-title{
+  font-family:$header-face;
+  font-size: $page-title-size;
+  line-height: $page-title-leading;
+  color:$medblue;
+  margin:0 0 ($baseline-grid-size * 2) 0;
+}
+
+//== Page subtitle
+.page-subtitle{
+  font-weight: $body-light;
+  font-size: $page-subtitle-size;
+  line-height: $page-subtitle-leading;
+  color:$drkblue;
+  margin:0 0 ($baseline-grid-size * 2) 0;
+}
+
+//== Page subsection
+.page-subsection{
+  //font-weight: $body-bold;
+  font-family: $header-face;
+  font-size: $page-subsection-size;
+  line-height: $page-subsection-leading;
+  color: $drkblue;
+  margin:0 0 ($baseline-grid-size * 3) 0;
+}
+
+//== card title
+.card-title{
+  font-family:$header-face;
+  font-size: $card-title-size;
+  line-height: $card-title-leading;
+  color:$medblue;
+  margin:0 0 ($baseline-grid-size) 0;
+}
+//== card subtitle
+.card-subtitle{
+  font-size: $card-subtitle-size;
+  line-height: $card-subtitle-leading;
+  color:$medblue;
+  margin:0 0 ($baseline-grid-size) 0;
+}
+//== Bold text
+.bold-text{
+  font-weight: $body-bold;
+  font-style: normal;
+}
+//== Text background to be used on $header-face type
+.text-background-header{
+  background-color: white;
+}
+//== Text background to be used on $body-face type
+.text-background-body{
+  background-color: white;
+  padding:($baseline-grid-size / 2) 0;
+}
+//== Form labels
+.form-label{
+  font-weight: $body-light;
+  color: $medblue;
+}
+
+//== Button text
+.button-text{
+  font-size: $button-type-size;
+  line-height: $button-type-leading;
+  font-family: $header-face;
+  letter-spacing: rem(0.3px);
+}
+//== Caption text
+.caption-text{
+  font-size:$page-caption-text;
+  line-height: $page-caption-leading;
+  padding:($baseline-grid-size / 2) 4px;
+  font-weight: $body-light;
+  text-align: left;
+}
+//== paragraphs
+p{
+  font-size: $body-type-size;
+  line-height: $body-type-leading;
+  margin:0 0 ($baseline-grid-size * 3) 0;
+  padding:0;
+  max-width: 635px;
+
+}
+
+//== links
+a{
+  @include transition(color $transition-animation);
+  // changed this to a bottom border and fixed line heights in paragraphs and the body
+  // due to Chrome and Safari's lack of support for CSS3 text-decoration.
+  border-bottom:1px dotted $link-color;
+  text-decoration: none;
+  color:$medblue;
+  font-weight: $body-bold;
+
+  &:visited{
+      color:$medblue;
+  }
+  &:hover{
+    color:$link-color;
+  }
+}
+
+//==

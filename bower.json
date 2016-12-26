@@ -1,0 +1,23 @@
+{
+  "name": "simppler-grav-theme",
+  "authors": [
+    "Tony Santos <tony@simppler.com>"
+  ],
+  "description": "a theme for Grav CMS for Simppler",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "^4.2.7",
+    "neat": "^1.8.0",
+    "normalize-css": "^5.0.0"
+  }
+}
