@@ -11,12 +11,11 @@
     {% include 'partials/metadata.html.twig' %}
 
     <link rel="icon" type="image/png" href="{{ url('theme://images/logo.png') }}" />
+    <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans:300,400,600" rel="stylesheet">
     <link rel="canonical" href="{{ page.url(true, true) }}" />
 
     {% block stylesheets %}
-        {% do assets.addCss('http://yui.yahooapis.com/pure/0.6.0/pure-min.css', 100) %}
-        {% do assets.addCss('https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css', 99) %}
-        {% do assets.addCss('theme://css/custom.css', 98) %}
+        {% do assets.addCss('theme://css/main.css', 98) %}
     {% endblock %}
     {{ assets.css() }}
 
@@ -28,41 +27,28 @@
 {% endblock head%}
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
+  <div class="grid">
+    {% block main_nav %}
+        <nav class="main-nav">
+          {% include 'partials/navigation.html.twig' %}
+        </nav>
+    {% endblock %}
+    {% block body %}
+        <section id="body">
+            <div class="wrapper padding">
+            {% block content %}{% endblock %}
+            </div>
+        </section>
+    {% endblock %}
 
-{% block header %}
-    <div class="header">
-        <div class="wrapper padding">
-            <a class="logo left" href="{{ base_url == '' ? '/' : base_url }}">
-                <i class="fa fa-rebel"></i>
-                {{ config.site.title }}
-            </a>
-            {% block header_navigation %}
-            <nav class="main-nav">
-                {% include 'partials/navigation.html.twig' %}
-            </nav>
-            {% endblock %}
-        </div>
-    </div>
-{% endblock %}
+    {% block footer %}
+        <footer>
+            {% include 'partials/footer.html.twig' %}
+        </footer>
+    {% endblock %}
 
-{% block body %}
-    <section id="body">
-        <div class="wrapper padding">
-        {% block content %}{% endblock %}
-        </div>
-    </section>
-{% endblock %}
-
-{% block footer %}
-    <div class="footer text-center">
-        <div class="wrapper padding">
-            <p><a href="http://getgrav.org">Grav</a> was <i class="fa fa-code"></i> with <i class="fa fa-heart"></i> by <a href="http://www.rockettheme.com">RocketTheme</a>.</p>
-        </div>
-    </div>
-{% endblock %}
-
-{% block bottom %}
-    {{ assets.js('bottom') }}
-{% endblock %}
-
+    {% block bottom %}
+        {{ assets.js('bottom') }}
+    {% endblock %}
+  </div>
 </body>

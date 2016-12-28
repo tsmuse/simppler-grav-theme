@@ -1,6 +1,7 @@
 @import "../bower_components/normalize-css/normalize.css";
 @import "../bower_components/bourbon/app/assets/stylesheets/_bourbon.scss";
 @import "../bower_components/neat/app/assets/stylesheets/_neat.scss";
+@import "../bower_components/breakpoint-sass/stylesheets/_breakpoint.scss";
 
 // = Simppler base styles
 // Everything else should be imported from a modular partial
@@ -70,6 +71,9 @@ $dropdown-padding: rem(18px);
 $transition-animation: 0.15s ease-in-out;
 $table-border-padding: 12px;
 $table-cell-padding: 6px;
+$grid-columns: 18; //override the number of cols set by Neat
+$visual-grid: true !global;
+$visual-grid-color: hotpink !global;
 
 //= Global Styles
 *{
@@ -79,37 +83,44 @@ $table-cell-padding: 6px;
 body{
   font-size:$body-type-size;
   font-family: $body-face;
-  color:$drkblue;
+  color:$medblue;
   line-height: $body-type-leading;
-  padding: ($baseline * 3);
+  padding: ($baseline * 4);
+}
+.grid{
+  @include outer-container(1600px);//initialize the neat grid
 }
 
 //= Style guide elements
 //== Page Title
+h1,
 .page-title{
   font-family:$header-face;
   font-size: $page-title-size;
   line-height: $page-title-leading;
-  color:$medblue;
   margin:0 0 ($baseline-grid-size * 2) 0;
+  color:$simpplerblue;
 }
 
 //== Page subtitle
+h2,
 .page-subtitle{
   font-weight: $body-light;
   font-size: $page-subtitle-size;
   line-height: $page-subtitle-leading;
-  color:$drkblue;
   margin:0 0 ($baseline-grid-size * 2) 0;
+  color:$lightblue;
 }
 
 //== Page subsection
+// This is the lowest level of hierarchy we will use. covering all h4-h6 because the editor includes those h-levels
+// and I don't want them to stray off style if someone accidentally uses them
+h3,h4,h5,h6
 .page-subsection{
   //font-weight: $body-bold;
   font-family: $header-face;
   font-size: $page-subsection-size;
   line-height: $page-subsection-leading;
-  color: $drkblue;
   margin:0 0 ($baseline-grid-size * 3) 0;
 }
 
@@ -133,11 +144,14 @@ body{
   font-weight: $body-bold;
   font-style: normal;
 }
-//== Text background to be used on $header-face type
+strong{
+  @extend .bold-text;
+}
+//== Text background to be used on $header-face type when floating them over a dotscreen
 .text-background-header{
   background-color: white;
 }
-//== Text background to be used on $body-face type
+//== Text background to be used on $body-face type when floating them over a dotscreen
 .text-background-body{
   background-color: white;
   padding:($baseline-grid-size / 2) 0;
@@ -180,7 +194,7 @@ a{
   // due to Chrome and Safari's lack of support for CSS3 text-decoration.
   border-bottom:1px dotted $link-color;
   text-decoration: none;
-  color:$medblue;
+  color:$simpplerblue;
   font-weight: $body-bold;
 
   &:visited{
@@ -190,5 +204,111 @@ a{
     color:$link-color;
   }
 }
+//== button
+.button{
+  @extend .button-text;
+  padding:rem(($baseline / 2)) rem($baseline);
+  margin: 0 0 rem($baseline * 2) 0;
+  background-color: transparent;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: $simppler-border-radius;
+  min-width:70px;
 
-//==
+  &--primary{
+    @extend .button;
+    border-color: $simpplerblue;
+    color:$simpplerblue;
+    &:hover{
+      color:white;
+      background-color:$simpplerblue;
+    }
+  }
+  &--secondary{
+    @extend .button;
+    border-color: $lightblue;
+    color:$lightblue;
+    &:hover{
+      color:white;
+      background-color:$lightblue;
+    }
+  }
+  &--danger{
+    @extend .button;
+    border-color: $orange;
+    color:$orange;
+    &:hover{
+      color:white;
+      background-color:$orange;
+    }
+  }
+  &--standout{
+    @extend .button;
+    border-color: $green;
+    color: $green;
+    &:hover{
+      color:white;
+      background-color:$green;
+    }
+  }
+  &--disabled{
+    @extend .button;
+    border-color: rgba($drkblue,0.4);
+    color: rgba($drkblue,0.4);
+    &:hover{
+      border-color: rgba($drkblue,0.4);
+      color: rgba($drkblue,0.4);
+    }
+  }
+}
+
+//== Single line list
+ul, ol,
+.one-line-list{
+  padding:0 0 0 12px;
+  margin:0 0 ($baseline-grid-size * 3) 0;
+  list-style:none;
+}
+
+ul li,
+.one-line-list__item{
+  padding: 0 0 $baseline-grid-size 0;
+  &:before{
+    content:url(../img/ul-bullet.svg);
+    display:inline-block;
+    vertical-align: middle;
+    width:18px;
+    height:18px;
+    margin-right:7px;
+  }
+  // NOTE: specific typeographic styles are set on each individual instance of a .one-line-list__item
+}
+
+ol{
+  counter-reset: item;
+
+}
+ol li{
+  padding: 0 0 $baseline-grid-size 0;
+  display:block;
+  &:before{
+    content: counter(item) ". ";
+    counter-increment: item;
+    font-size: 18px;
+    line-height: 24px;
+    color: $simpplerblue;
+  }
+}
+//== Button list
+.button-list{
+  @extend .one-line-list;
+  padding:0;
+
+  .button-list__item{
+    display:inline-block;
+    padding-left:rem(4px);
+
+  }
+}
+//== Page styles
+@import "_nav";

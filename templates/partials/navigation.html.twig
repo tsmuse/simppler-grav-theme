@@ -1,48 +1,26 @@
-{% macro loop(page) %}
-    {% for p in page.children.visible %}
-        {% set current_page = (p.active or p.activeChild) ? 'selected' : '' %}
-        {% if p.children.visible.count > 0 %}
-            <li class="has-children {{ current_page }}">
-                <a href="{{ p.url }}">
-                    {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
-                    {{ p.menu }}
-                </a>
-                <ul>
-                    {{ _self.loop(p) }}
-                </ul>
-            </li>
-        {% else %}
-            <li class="{{ current_page }}">
-                <a href="{{ p.url }}">
-                    {% if p.header.icon %}<i class="fa fa-{{ p.header.icon }}"></i>{% endif %}
-                    {{ p.menu }}
-                </a>
-            </li>
-        {% endif %}
-    {% endfor %}
-{% endmacro %}
-
-<ul>
-    {% if theme_config.dropdown.enabled %}
-        {{ _self.loop(pages) }}
-    {% else %}
-        {% for page in pages.children.visible %}
-            {% set current_page = (page.active or page.activeChild) ? 'selected' : '' %}
-            <li class="{{ current_page }}">
-                <a href="{{ page.url }}">
-                    {% if page.header.icon %}<i class="fa fa-{{ page.header.icon }}"></i>{% endif %}
-                    {{ page.menu }}
-                </a>
-            </li>
-        {% endfor %}
-    {% endif %}
-    {% for mitem in site.menu %}
-        <li>
-            <a href="{{ mitem.url }}">
-                {% if mitem.icon %}<i class="fa fa-{{ mitem.icon }}"></i>{% endif %}
-                {{ mitem.text }}
+<div class="main-nav__logo-container">
+  <!-- <img src= {# {{ url('theme://img/logo.svg') }} #} class="main-nav__logo-container__logo"/> -->
+  {#
+  This partial is the raw SVG code for the logo. This is a super easy way to inject it and be able to control it via CSS.
+  Needs to be tested for browser compliance, but I'm pretty sure it should work everywhere we need it.
+  #}
+  <a href="{{uri.rootUrl()}}" class="logo-link">{% include 'partials/logo.html.twig' %}</a>
+</div>
+<ul class="main-nav__nav-items">
+    {% for page in pages.children %}
+      {% if page.visible %}
+        {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+        <li class="{{ current_page }} main-nav__nav-items__item">
+            <a href="{{ page.url }}">
+                {{ page.menu }}
             </a>
         </li>
+      {% endif %}
     {% endfor %}
 </ul>
-
+<div class="main-nav__action-container">
+  <ul class="button-list">
+    <li class="button-list__item"><button class="button--standout main-nav__nav-items__button" href="#"> Request a demo</button></li>
+    <li class="button-list__item"><button class="button--secondary main-nav__nav-items__button" href="#"> Log in</button></li>
+  </ul>
+</div>
