@@ -1,0 +1,120 @@
+$footer-logo-height: $baseline * 10;
+
+footer{
+  width:100%;
+  background-color: lighten($lightblue, 22%);
+  min-height:100px;
+  padding:$baseline *10;
+}
+.footer__grid{
+  @include outer-container($grid-max-width);
+
+  .row{
+    margin-bottom: $baseline * 3;
+  }
+}
+.footer__links{
+  @include span-columns(9);
+  @include clearfix;
+  padding-top:$baseline * 2;
+
+  &__title{
+    @include span-columns(9 of 9);
+    color:$simpplerblue;
+    font-size: 30px;
+    line-height: $baseline * 6;
+    font-weight: $body-reg;
+    margin-bottom: 0;
+    height:$footer-logo-height;
+  }
+
+  &__list{
+    list-style: none;
+    padding:0;
+
+    &__item{
+
+      &:before{
+        content: '';
+        width:0;
+        height:0;
+        margin-right:0;
+      }
+      a{
+        font-size: 18px;
+        line-height: $baseline * 4;
+        font-weight: $body-light;
+        color:$simpplerblue;
+        border-bottom: none;
+      }
+    }
+  }
+  &__list--left{
+    @extend .footer__links__list;
+    @include span-columns(2 of 9);
+  }
+  &__list--right{
+    @extend .footer__links__list;
+    @include span-columns(2 of 9);
+  }
+}
+.footer__contact{
+  @include span-columns(9);
+  @include clearfix;
+
+  &__logo{
+    @include clearfix;
+    @include span-columns(4.5 of 9);
+    margin-bottom: $baseline * 2;
+
+    .logo-link{
+      @include clearfix;
+      border-bottom: none;
+      display:inline-block;
+      height:$footer-logo-height;
+    }
+    .logo{
+      fill:$simpplerblue;
+      height: $footer-logo-height;
+    }
+  }
+  &__cta{
+    @include span-columns(9 of 9);
+  }
+
+  .button--standout{
+    font-size: 20px;
+    line-height: 30px;
+    letter-spacing: 0.8px;
+    padding:$baseline
+  }
+}
+.footer__nav{
+  @include span-columns(18);
+  @include clearfix;
+  border-top: 1px solid $simpplerblue;
+  padding-top:$baseline * 2;
+
+  &__links{
+    list-style: none;
+
+    &__item{
+      display:inline-block;
+      margin-right:24px;
+      font-size:14px;
+      line-height: $baseline * 3;
+      color:$simpplerblue;
+
+      &:before{
+        content: '';
+        width:0;
+        height:0;
+        margin-right:0;
+      }
+      a{
+
+        border-bottom: none;
+      }
+    }
+  }
+}

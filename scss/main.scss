@@ -65,6 +65,9 @@ $lightgold-dots: url(../img/lightgold_dot.png);
 $green-dots: url(../img/green_dot.png);
 
 //== Global Variables
+// Technically all SASS variables are global, the vars defined here are used throughout the stylesheets
+// any variable that is only used in a specific section is defined in that partial and should start with the name of
+// the partial they live in. This namespacing scheme may be problematic later on,I guess we'll see.
 $link-color: $lightgold;
 $simppler-border-radius: 1px !default;
 $dropdown-padding: rem(18px);
@@ -72,8 +75,7 @@ $transition-animation: 0.15s ease-in-out;
 $table-border-padding: 12px;
 $table-cell-padding: 6px;
 $grid-columns: 18; //override the number of cols set by Neat
-$visual-grid: true !global;
-$visual-grid-color: hotpink !global;
+$grid-max-width: 1600px;
 
 //= Global Styles
 *{
@@ -85,11 +87,18 @@ body{
   font-family: $body-face;
   color:$medblue;
   line-height: $body-type-leading;
-  padding: ($baseline * 4);
 }
 .grid{
-  @include outer-container(1600px);//initialize the neat grid
+  @include outer-container($grid-max-width);//initialize the neat grid
+  padding: ($baseline * 4);
 }
+.row{
+  @include row;
+}
+.page-content{
+  padding:0 ($baseline * 3);
+}
+
 
 //= Style guide elements
 //== Page Title
@@ -312,3 +321,4 @@ ol li{
 }
 //== Page styles
 @import "_nav";
+@import "_footer";

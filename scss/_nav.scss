@@ -1,6 +1,5 @@
 $nav-height: $baseline * 10;
-$menu-height: $nav-height - ($baseline * 6); // height of it's parent minus the top & bottom padding minus an extra 2 baselines
-$logo-height: $nav-height;
+$nav-logo-height: $nav-height;
 .main-nav{
   @include fill-parent;
   @include clearfix;
@@ -14,7 +13,7 @@ $logo-height: $nav-height;
     @include clearfix;
     text-align:left;
     display:inline-block;
-    height:$logo-height; // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
+    height:$nav-logo-height; // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
 
   .logo-link{
     @include clearfix;
@@ -22,7 +21,7 @@ $logo-height: $nav-height;
     border-bottom: none;
   }
   .logo{
-      height:$logo-height;
+      height:$nav-logo-height;
       fill:$lightblue;
       &:hover{
         fill:transparentize(white, .12);
@@ -32,8 +31,8 @@ $logo-height: $nav-height;
 
   &__nav-items{
     @include span-columns(6);
-    padding: (($logo-height/2) - ($body-type-leading/2)) 0 0 0;
-    height: $logo-height;
+    padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
+    height: $nav-logo-height;
     list-style: none;
     text-align:left;
     margin:0;
@@ -58,14 +57,14 @@ $logo-height: $nav-height;
     @include span-columns(6);
     @include clearfix;
     text-align: right;
-    height:$logo-height;
+    height:$nav-logo-height;
 
     .button-list{
       margin-bottom:0;
-      height:$logo-height;
+      height:$nav-logo-height;
       // button height = border width + $button-type-leading + $baseline
       $button-height: 2px + $button-type-leading + $baseline;
-      padding: (($logo-height/2) - ($button-height/2)) 0 0 0;
+      padding: (($nav-logo-height/2) - ($button-height/2)) 0 0 0;
 
       &__item{
         margin-bottom:0;

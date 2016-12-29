@@ -33,22 +33,18 @@
           {% include 'partials/navigation.html.twig' %}
         </nav>
     {% endblock %}
-    {% block body %}
-        <section id="body">
-            <div class="wrapper padding">
-            {% block content %}{% endblock %}
-            </div>
-        </section>
-    {% endblock %}
-
-    {% block footer %}
-        <footer>
-            {% include 'partials/footer.html.twig' %}
-        </footer>
-    {% endblock %}
-
-    {% block bottom %}
-        {{ assets.js('bottom') }}
-    {% endblock %}
+    <div class="page-content">
+      {% block body %}
+        {% block content %}{% endblock %}
+      {% endblock %}
+    </div>
   </div>
+  {% block footer %}
+      <footer>
+          {% include 'partials/footer.html.twig' %}
+      </footer>
+  {% endblock %}
+  {% block bottom %}
+      {{ assets.js('bottom') }}
+  {% endblock %}
 </body>

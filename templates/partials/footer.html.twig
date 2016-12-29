@@ -1,0 +1,44 @@
+<div class="footer__grid">
+  <div class="row">
+    <div class="footer__contact">
+      <div class="footer__contact__logo">
+        <a href="{{uri.rootUrl()}}" class="logo-link">{% include 'partials/logo.html.twig' %}</a>
+      </div>
+      <div class="footer__contact__cta">
+        <p>{{site.footer.description}}</p>
+        <button class="footer__cta button--standout">Signup for a demo today!</button>
+      </div>
+    </div>
+    <div class="footer__links">
+      <h2 class="footer__links__title">hello@simppler.com</h2>
+      {% set social_count = site.social|length %}
+      {% set first_half = ((social_count / 2)|round) - 1 %}
+      <ul class="footer__links__list--left">
+        {% for i in range(0, first_half) %}
+            <li class="footer__links__list__item">
+                <a href="{{ site.social[i].url }}">
+                    {{ site.social[i].icon }}
+                </a>
+            </li>
+        {% endfor %}
+      </ul>
+      <ul class="footer__links__list--right">
+        {% for i in range((first_half + 1), (site.social|length) - 1) %}
+            <li class="footer__links__list__item">
+                <a href="{{ site.social[i].url }}">
+                    {{ site.social[i].icon }}
+                </a>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="footer__nav">
+    <ul class="footer__nav__links">
+      {% for link in site.footer.links %}
+        <li class="footer__nav__links__item"><a href="{{link.url}}">{{link.title}}</a></li>
+      {% endfor %}
+      <li class="footer__nav__links__item">&copy;{{site.footer.copyright_text}}</li>
+    </ul>
+  </div>
+</div>
