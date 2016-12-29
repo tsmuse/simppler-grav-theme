@@ -1,5 +1,6 @@
-$nav-height: $baseline * 10;
+$nav-height: $baseline * 7;
 $nav-logo-height: $nav-height;
+$nav-link-hover: transparentize(white, .12);
 .main-nav{
   @include fill-parent;
   @include clearfix;
@@ -24,7 +25,7 @@ $nav-logo-height: $nav-height;
       height:$nav-logo-height;
       fill:$lightblue;
       &:hover{
-        fill:transparentize(white, .12);
+        fill:$nav-link-hover
       }
     }
   }
@@ -44,11 +45,11 @@ $nav-logo-height: $nav-height;
           a{
             border-bottom: none;
             font-weight: $body-light;
-            font-size: 20px;
+            font-size: 18px;
             color:lighten($lightblue, 10%);
             line-height: $body-type-leading;
             &:hover{
-              color:$lightgold;
+              color:$nav-link-hover;
             }
           }
     }

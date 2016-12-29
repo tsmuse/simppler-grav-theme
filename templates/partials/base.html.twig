@@ -21,12 +21,15 @@
 
     {% block javascripts %}
         {% do assets.addJs('jquery', 100) %}
+        {% do assets.addJs('theme://bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js', {'priority':90, 'pipeline':false, 'group':'bottom'})%}
+        {% do assets.addJs('theme://js/pin_nav.js', {'priority':85, 'pipeline':true, 'group':'bottom'}) %}
     {% endblock %}
     {{ assets.js() }}
 
 {% endblock head%}
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
+  <div id="nav-trigger"></div>
   <div class="grid">
     {% block main_nav %}
         <nav class="main-nav">

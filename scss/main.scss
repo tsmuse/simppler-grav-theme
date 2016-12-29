@@ -98,7 +98,10 @@ body{
 .page-content{
   padding:0 ($baseline * 3);
 }
-
+#nav-trigger{
+  position:absolute;
+  top:$baseline * 4;
+}
 
 //= Style guide elements
 //== Page Title
@@ -176,7 +179,7 @@ strong{
   font-size: $button-type-size;
   line-height: $button-type-leading;
   font-family: $header-face;
-  letter-spacing: rem(0.3px);
+  letter-spacing: rem(0.7px);
 }
 //== Caption text
 .caption-text{
