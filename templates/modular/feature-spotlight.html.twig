@@ -1,0 +1,11 @@
+<section class="{{ page.header.color_bg ? 'color-bg' : '' }}">
+  <div class="feature-spotlight" >
+    <h2 class="feature-spotlight__title {{ page.header.color_bg ? 'light-text' : '' }}">{{ page.header.title }}</h2>
+    <div class="img-container feature-spotlight__image">
+      {{ (page.media.images|first.html )}}
+    </div>
+    <div class="feature-spotlight__text {{ page.header.color_bg ? 'light-text' : '' }}">
+      {{ content }}
+    </div>
+  </div>
+</section>

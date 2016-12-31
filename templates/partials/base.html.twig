@@ -30,7 +30,6 @@
 </head>
 <body id="top" class="{{ page.header.body_classes }}">
   <div id="nav-trigger"></div>
-  <div class="grid">
     {% block main_nav %}
         <nav class="main-nav">
           {% include 'partials/navigation.html.twig' %}
@@ -41,7 +40,6 @@
         {% block content %}{% endblock %}
       {% endblock %}
     </div>
-  </div>
   {% block footer %}
       <footer>
           {% include 'partials/footer.html.twig' %}

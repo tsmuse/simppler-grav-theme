@@ -1,0 +1,11 @@
+.text-title{
+  @extend .grid;
+  @include clearfix;
+  margin-bottom:$baseline * 6;
+  &__title{
+    @include span-columns(18);
+  }
+  &__blurb{
+    @include span-columns(12);
+  }
+}

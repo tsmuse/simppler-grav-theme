@@ -88,6 +88,8 @@ body{
   color:$medblue;
   line-height: $body-type-leading;
 }
+// in order to be able to do full-bleed BG colors, every section has to be it's own grid
+// this should be over written as needed
 .grid{
   @include outer-container($grid-max-width);//initialize the neat grid
   padding: ($baseline * 4);
@@ -95,9 +97,19 @@ body{
 .row{
   @include row;
 }
-.page-content{
-  padding:0 ($baseline * 3);
+section{
+  @include clearfix;
+  width:100%;
 }
+.color-bg{
+  background-color:$simpplerblue;
+}
+.light-text{
+  color:lighten($lightblue,14%);
+}
+
+.page-content{}
+
 #nav-trigger{
   position:absolute;
   top:$baseline * 4;
@@ -320,8 +332,20 @@ ol li{
     display:inline-block;
     padding-left:rem(4px);
 
+    &:before{
+      content: '';
+      width:0;
+      height:0;
+      margin-right:0;
+    }
   }
+}
+.img-container img{
+  width:100%;
 }
 //== Page styles
 @import "_nav";
 @import "_footer";
+@import "_how-step-module";
+@import "_text-title-module";
+@import "_feature-spotlight-module";

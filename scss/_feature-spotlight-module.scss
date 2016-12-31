@@ -1,0 +1,31 @@
+$feature-spotlight-img-height: 300px;
+
+.feature-spotlight{
+  @extend .grid;
+  padding:($baseline * 9) 0;
+
+
+  &__title{
+    @include span-columns(16);
+    @include shift(2);
+    font-size:20px;
+    line-height: $baseline * 5;
+    letter-spacing: 1px;
+    font-family: $header-face;
+  }
+  &__image{
+    @include span-columns(6);
+    @include shift(2);
+    height: $feature-spotlight-img-height;
+    overflow:hidden;
+  }
+  &__text{
+    @include span-columns(8);
+
+    p{
+      font-size: 18px;
+      font-weight: $body-light;
+      letter-spacing: 0.7px;
+    }
+  }
+}

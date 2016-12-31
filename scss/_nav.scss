@@ -1,16 +1,18 @@
 $nav-height: $baseline * 7;
 $nav-logo-height: $nav-height;
 $nav-link-hover: transparentize(white, .12);
+
 .main-nav{
-  @include fill-parent;
+  @include outer-container($grid-max-width);//initialize the neat grid
+  margin: ($baseline * 4) ($baseline * 4) ($baseline * 7) ($baseline * 4);
   @include clearfix;
   min-height:$nav-height;
   background-color: $simpplerblue;
   padding:($baseline * 2) ($baseline * 4);
-  margin-bottom: $baseline * 3;
+  
 
   &__logo-container{
-    @include span-columns(6);
+    @include span-columns(5.5);
     @include clearfix;
     text-align:left;
     display:inline-block;
@@ -31,7 +33,7 @@ $nav-link-hover: transparentize(white, .12);
   }
 
   &__nav-items{
-    @include span-columns(6);
+    @include span-columns(8.5);
     padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
     height: $nav-logo-height;
     list-style: none;
@@ -42,20 +44,27 @@ $nav-link-hover: transparentize(white, .12);
       display:inline-block;
       padding-right:18px;
 
-          a{
-            border-bottom: none;
-            font-weight: $body-light;
-            font-size: 18px;
-            color:lighten($lightblue, 10%);
-            line-height: $body-type-leading;
-            &:hover{
-              color:$nav-link-hover;
-            }
-          }
+      &:before{
+        content: '';
+        width:0;
+        height:0;
+        margin-right:0;
+      }
+
+      a{
+        border-bottom: none;
+        font-weight: $body-light;
+        font-size: 18px;
+        color:lighten($lightblue, 10%);
+        line-height: $body-type-leading;
+        &:hover{
+          color:$nav-link-hover;
+        }
+      }
     }
   }
   &__action-container{
-    @include span-columns(6);
+    @include span-columns(4);
     @include clearfix;
     text-align: right;
     height:$nav-logo-height;

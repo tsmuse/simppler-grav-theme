@@ -1,0 +1,27 @@
+// # This is the stylesheet for both how-step modules
+
+$how-step-img-height: 300px;
+
+.how-it-works__step--left,
+.how-it-works__step--right{
+  @extend .grid;
+  @include clearfix;
+  margin-bottom:($baseline * 10);
+
+  &__image{
+    @include span-columns(8 of 18);
+    height:$how-step-img-height;
+    overflow:hidden;
+  }
+  &__text{
+    @include span-columns(6 of 18);
+    height:$how-step-img-height;
+    padding: ($baseline * 4) 12px;
+  }
+}
+.how-it-works__step--left__image{
+  @include shift(2);
+}
+.how-it-works__step--right__text{
+  @include shift(2);
+}
