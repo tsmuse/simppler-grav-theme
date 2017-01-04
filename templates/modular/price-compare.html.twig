@@ -1,3 +1,41 @@
-<div class="price compare">
-  {{ content }}
-</div>
+<section class="price-compare">
+  <table class="price-compare__table">
+    <thead>
+        <tr>
+          <th class="price-compare__table__users-col"> </th>
+          <th class="price-compare__table__referrals-col">Referrals</th>
+          <th class="price-compare__table__talent-col">Talent</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr>
+          <td>0 - 1,000 users</td>
+          <td><span class="price-style">${{shortcode.section.referrals_price_tier_1}}</span> /user/month</td>
+          <td><span class="price-style">${{shortcode.section.talent_price_tier_1}}</span> /user/month</td>
+      </tr>
+      <tr>
+          <td>1,001 - 5,000 users</td>
+          <td><span class="price-style">${{shortcode.section.referrals_price_tier_2}}</span> /user/month</td>
+          <td><span class="price-style">${{shortcode.section.talent_price_tier_2}}</span> /user/month</td>
+      </tr>
+      <tr>
+          <td>5,001 - 10,000 users</td>
+          <td><span class="price-style">${{shortcode.section.referrals_price_tier_3}}</span> /user/month</td>
+          <td><span class="price-style">${{shortcode.section.talent_price_tier_3}}</span> /user/month</td>
+      </tr>
+      <tr>
+        <td colspan="3"></td>
+      </tr>
+      <tr class="price-compare__table__desc-row">
+          <td></td>
+          <td>{{shortcode.section.referrals_desc}}</td>
+          <td>{{shortcode.section.talent_desc}}</td>
+      </tr>
+      <tr class="price-compare__table__features-row">
+          <td> features </td>
+          <td>{{shortcode.section.referrals_features}}</td>
+          <td>{{shortcode.section.talent_features}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

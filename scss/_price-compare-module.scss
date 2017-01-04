@@ -1,0 +1,80 @@
+.price-compare{
+  @extend .grid;
+  @include clearfix;
+
+  .price-compare__table{
+    @include span-columns(12);
+    @include shift(3);
+    display: table; // span-columns sets the display to block and needs to be overidden
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: auto;
+
+    thead{
+      width:100%;
+      background-color: white;
+    }
+    th{
+      max-width: $column * 2;
+      border-bottom: 1px solid $simpplerblue;
+      border-top: 1px solid $simpplerblue;
+      padding: $baseline-grid-size $table-cell-padding;
+      text-align: left;
+      font-weight: $body-light;
+      color:$lightblue;
+      font-size: 28px;
+      line-height: $baseline * 6;
+      padding:$baseline;
+
+      &:first-of-type{
+        padding-left:$table-border-padding;
+      }
+      &:last-of-type{
+        padding-right:$table-border-padding;
+      }
+    }
+
+    tr:nth-child(even) {
+      background-image: $lightblue-dots;
+    }
+
+     td{
+      font-size: 18px;
+      line-height: $baseline * 10;
+      border: 0;
+      padding: $baseline-grid-size $table-cell-padding;
+
+
+      &:first-of-type{
+        padding-left:$table-border-padding;
+      }
+      &:last-of-type{
+        padding-right:$table-border-padding;
+      }
+
+      .price-style{
+        font-size:50px;
+        color:$simpplerblue;
+        display:inline-block;
+        padding-right:3px;
+      }
+    }
+  }
+}
+
+.price-compare .price-compare__table tbody tr.price-compare__table__desc-row td,
+.price-compare .price-compare__table tbody tr.price-compare__table__features-row td{
+  font-size: $body-type-size;
+  line-height: $body-type-leading;
+  vertical-align: top;
+}
+.price-compare .price-compare__table tbody tr.price-compare__table__features-row{
+  background-image: none;
+}
+.price-compare__table__users-col{
+  min-width: 200px;
+}
+.price-compare__table__referrals-col,
+.price-compare__table__talent-col{
+  width:36%;
+}
