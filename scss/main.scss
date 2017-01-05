@@ -92,7 +92,7 @@ body{
 // this should be over written as needed
 .grid{
   @include outer-container($grid-max-width);//initialize the neat grid
-  padding: ($baseline * 4);
+  padding: ($baseline) ($baseline * 8) ($baseline) ($baseline * 8);
 }
 .row{
   @include row;
@@ -350,3 +350,4 @@ ol li{
 @import "_text-title-module";
 @import "_feature-spotlight-module";
 @import "_price-compare-module";
+@import "_cta-w-button-module";

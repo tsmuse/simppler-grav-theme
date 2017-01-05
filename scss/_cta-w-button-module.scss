@@ -1,0 +1,28 @@
+.button--bigCTA{
+  @extend .button--primary;
+  width:100%;
+  padding:($baseline * 3) 20px;
+  font-size: 30px;
+  border-width:3px;
+  line-height: $baseline * 6;
+
+}
+
+.cta-button{
+  @extend .grid;
+  @include clearfix;
+
+  &__copy{
+    @include span-columns(18);
+    @include clearfix;
+    p{
+      @include span-columns(8 of 18);
+      @include shift(5 of 18);
+    }
+  }
+
+  &__button{
+    @include span-columns(6);
+    @include shift(6);
+  }
+}

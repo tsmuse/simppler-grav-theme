@@ -9,6 +9,7 @@
     border-collapse: separate;
     border-spacing: 0;
     table-layout: auto;
+    margin-bottom: $baseline * 6;
 
     thead{
       width:100%;
@@ -66,7 +67,6 @@
 .price-compare .price-compare__table tbody tr.price-compare__table__features-row td{
   font-size: $body-type-size;
   line-height: $body-type-leading;
-  vertical-align: top;
 }
 .price-compare .price-compare__table tbody tr.price-compare__table__features-row{
   background-image: none;
@@ -77,4 +77,14 @@
 .price-compare__table__referrals-col,
 .price-compare__table__talent-col{
   width:36%;
+}
+.price-compare .price-compare__table tbody tr.price-compare__table__desc-row td{
+  vertical-align: top;
+}
+.price-compare .price-compare__table tbody tr.price-compare__table__features-row td{
+  vertical-align: middle;
+
+  ul{
+    margin-bottom:0;
+  }
 }
