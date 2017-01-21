@@ -29,7 +29,7 @@
   }
 
   &__button{
-    @include span-columns(7);
+    @include span-columns(6);
     padding-top:$baseline * 5;
 
   }
