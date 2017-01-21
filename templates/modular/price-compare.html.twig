@@ -1,12 +1,25 @@
-<section class="price-compare">
-  {% for tier in shortcode.section %}
-    <div class="price-compare__tier">
-      <h2 class="price-compare__tier__title">{{tier.name}}</h2>
-      <p class="price-compare__tier__price">${{tier.price}} per user per month</p>
-      <div class="price-compare__tier__features">
-        {{tier}}
-      </div>
-    </div>
-  {% endfor %}
+{% import "/macros/macros.html.twig" as macros %}
 
+<section class="price-compare">
+  <div class="price-compare__tiers">
+    <div class="price-compare__tiers__tier">
+      {{ macros.price_tier(shortcode.section.tier1_title, shortcode.section.tier1_price, shortcode.section.tier1_onboarding, shortcode.section.tier1_tag) }}
+    </div>
+    <div class="price-compare__tiers__tier">
+      {{ macros.price_tier(shortcode.section.tier2_title, shortcode.section.tier2_price, shortcode.section.tier2_onboarding, shortcode.section.tier2_tag, shortcode.section.tier2_cta, shortcode.section.tier2_cta_link) }}
+    </div>
+    <div class="price-compare__tiers__tier">
+      {{ macros.price_tier(shortcode.section.tier3_title, shortcode.section.tier3_price, shortcode.section.tier3_onboarding, shortcode.section.tier3_tag, shortcode.section.tier3_cta, shortcode.section.tier3_cta_link) }}
+    </div>
+  </div>
+  <div class="price-compare__bottoms">
+    <div class="price-compare__bottoms__bottom">
+      <button class="price-compare__tiers__tier__cta" href={{shortcode.section.tier1_cta_link}}>{{shortcode.section.tier1_cta}}</button>
+    </div>
+    <div class="price-compare__bottoms__bottom">
+      <button class="price-compare__tiers__tier__cta" href={{shortcode.section.tier2_cta_link}}>{{shortcode.section.tier2_cta}}</button>
+    </div>
+    <div class="price-compare__bottoms__bottom">
+      <button class="price-compare__tiers__tier__cta" href={{shortcode.section.tier3_cta_link}}>{{shortcode.section.tier3_cta}}</button>
+  </div>
 </section>

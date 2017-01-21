@@ -123,7 +123,7 @@ h1,
   font-size: $page-title-size;
   line-height: $page-title-leading;
   margin:0 0 ($baseline-grid-size * 2) 0;
-  color:$simpplerblue;
+  color:$medblue;
 }
 
 //== Page subtitle
@@ -350,4 +350,5 @@ ol li{
 @import "_text-title-module";
 @import "_feature-spotlight-module";
 @import "_price-compare-module";
+@import "_feature-compare-module";
 @import "_cta-w-button-module";

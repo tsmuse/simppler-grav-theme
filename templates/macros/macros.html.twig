@@ -1,0 +1,16 @@
+{% macro price_tier(title, price, onboarding, tag) %}
+
+  <h2 class="price-compare__tiers__tier__title">{{title}}</h2>
+  <hr class="solid-rule"></hr>
+  <div class="price-compare__tiers__tier__details-section">
+    <p class="price-compare__tiers__tier__price">
+      {{price}}
+    </p>
+    <p class="price-compare__tiers__tier__onboarding">
+      {{onboarding}}
+    </p>
+    <p class="price-compare__tiers__tier__tag">
+      {{tag}}
+    </p>
+  </div>
+{% endmacro %}
