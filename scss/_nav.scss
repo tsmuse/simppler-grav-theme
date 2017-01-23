@@ -3,23 +3,22 @@ $nav-logo-height: $nav-height;
 $nav-link-hover: transparentize(white, .12);
 
 .main-nav{
-  @include outer-container($grid-max-width);//initialize the neat grid
-  margin: ($baseline * 4) ($baseline * 4) ($baseline * 7) ($baseline * 4);
-  @include clearfix;
+  width:80%;
+  max-width: $grid-max-width;
+  display:flex;
   min-height:$nav-height;
   background-color: $simpplerblue;
   padding:($baseline * 2) ($baseline * 4);
-  
+  margin: ($baseline * 4) auto ($baseline * 7) auto;
+
 
   &__logo-container{
-    @include span-columns(5.5);
-    @include clearfix;
     text-align:left;
-    display:inline-block;
+    order: 1;
+    flex-grow: 1;
     height:$nav-logo-height; // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
 
   .logo-link{
-    @include clearfix;
     display:inline-block;
     border-bottom: none;
   }
@@ -33,11 +32,12 @@ $nav-link-hover: transparentize(white, .12);
   }
 
   &__nav-items{
-    @include span-columns(8.5);
     padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
     height: $nav-logo-height;
     list-style: none;
     text-align:left;
+    order:2;
+    flex-grow: 2;
     margin:0;
 
     &__item{
@@ -64,10 +64,10 @@ $nav-link-hover: transparentize(white, .12);
     }
   }
   &__action-container{
-    @include span-columns(4);
-    @include clearfix;
     text-align: right;
     height:$nav-logo-height;
+    order:3;
+    flex-grow: 1;
 
     .button-list{
       margin-bottom:0;
