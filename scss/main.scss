@@ -211,6 +211,33 @@ p{
 
 }
 
+//blockquotes
+
+
+blockquote{
+  margin: 0 0 ($baseline) 0;
+  padding: 0 0 0 16px;
+  p {
+    font-size: 20px;
+    font-weight: $body-light;
+    line-height: $baseline * 6;
+    font-style: italic;
+    color:$simpplerblue;
+
+    &:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+}
+.quote-attribution{
+  display:inline-block;
+  color:$medblue;
+  font-size: 14px;
+  font-weight: $body-bold;
+  padding: 0 0 0 16px;
+  margin-bottom:$baseline * 3;
+}
+
 //== links
 a{
   @include transition(color $transition-animation);
@@ -352,3 +379,7 @@ ol li{
 @import "_price-compare-module";
 @import "_feature-compare-module";
 @import "_cta-w-button-module";
+@import "_full-bleed-img-module";
+@import "_text-section-module";
+@import "_story-w-img-module";
+@import "_logo-list-module";

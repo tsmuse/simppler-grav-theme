@@ -1,0 +1,19 @@
+.full-bleed-img{
+  margin-bottom: $baseline * 3;
+
+  &__img-container{
+    width: 100%;
+    background-color: $drkblue;
+    text-align: center;
+
+    max-height:$baseline * 63;
+    overflow: hidden;
+
+    img{
+      width:100%;
+      max-width: 2000px;
+      max-height:420px;
+
+    }
+  }
+}

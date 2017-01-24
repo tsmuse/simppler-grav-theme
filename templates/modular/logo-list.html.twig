@@ -1,0 +1,13 @@
+<section class="logo-list">
+  <h2 class="logo-list__title">{{shortcode.section.title}}</h2>
+  <div class="logo-list__text">
+    {{content}}
+  </div>
+  <div class="logo-list__logos">
+    <ul class="logo-list__logos__list">
+    {% for img in page.media.images %}
+      <li class="logo-list__logos__list__item">{{img.html}}</li>
+    {% endfor %}
+    </ul>
+  </div>
+</section>

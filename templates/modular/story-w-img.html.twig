@@ -1,0 +1,9 @@
+<section class="story-w-img">
+  <h2 class="story-w-img__title">{{shortcode.section.title}}</h2>
+  <div class="story-w-img__img-container">
+    {{ (page.media.images|first.html )}}
+  </div>
+  <div class="story-w-img__story">
+    {{content}}
+  </div>
+</section>

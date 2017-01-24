@@ -1,0 +1,10 @@
+.text-section{
+  @extend .grid;
+  @include clearfix;
+  margin-bottom: $baseline * 3;
+
+  p{
+    @include span-columns(9);
+    @include shift(5);
+  }
+}
