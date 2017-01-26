@@ -1,0 +1,30 @@
+.home-big-img{
+  @extend .grid;
+  @include clearfix;
+
+  &__container{
+    @include fill-parent;
+    @include clearfix;
+    height:556px;
+    // NOTE: the image itself is defined in-line so the image can be managed through the CMS
+    // which is a pretty neat trick if I do say so myself.
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+
+  &__title{
+    // padding: ($baseline * 10) 0 0 45px;
+    @include span-columns(7.75 of 18);
+    @include shift(0.25);
+    letter-spacing: 1.4px;
+    background-color: white;
+    h1{
+      margin:0;
+      padding:($baseline * 2) 20px;
+      font-size: 48px;
+      line-height: $baseline * 9;
+    }
+
+  }
+}

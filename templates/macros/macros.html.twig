@@ -14,3 +14,11 @@
     </p>
   </div>
 {% endmacro %}
+
+{% macro tp_list(summary, body) %}
+  <h3 class="tp-list__item__summary">{{summary}}</h3>
+  <hr class="solid-rule"></hr>
+  <div class="tp-list__item__body">
+    {{body}}
+  </div>
+{% endmacro %}

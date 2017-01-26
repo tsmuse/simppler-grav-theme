@@ -1,0 +1,18 @@
+{% import "/macros/macros.html.twig" as macros %}
+<section class="tp-list">
+  <div class="tp-list__intro">
+    <h2 class="tp-list__title">{{shortcode.section.section_title}}</h2>
+    <div class="tp-list__blurb">
+      {{shortcode.section.section_blurb}}
+    </div>
+  </div>
+  <div class="tp-list__item">
+    {{macros.tp_list(shortcode.section.summary01, shortcode.section.body01)}}
+  </div>
+  <div class="tp-list__item">
+    {{macros.tp_list(shortcode.section.summary02, shortcode.section.body02)}}
+  </div>
+  <div class="tp-list__item">
+    {{macros.tp_list(shortcode.section.summary03, shortcode.section.body03)}}
+  </div>
+</section>

@@ -107,6 +107,10 @@ section{
 .light-text{
   color:lighten($lightblue,14%);
 }
+.solid-rule{
+  border:none;
+  border-bottom:$baseline solid $simpplerblue;
+}
 
 .page-content{}
 
@@ -383,3 +387,8 @@ ol li{
 @import "_text-section-module";
 @import "_story-w-img-module";
 @import "_logo-list-module";
+@import "_home-big-img-module";
+@import "_home-cta-w-button-module";
+@import "_quote-grid-module";
+@import "_talking-point-list-module";
+@import "_spacer-module";
