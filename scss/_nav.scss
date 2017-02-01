@@ -16,7 +16,7 @@ $nav-link-hover: transparentize(white, .12);
   padding:($baseline * 2) ($baseline * 4);
   margin: 0 auto 0 auto;
   @include breakpoint($laptop){
-    width:80%;
+    width:90%;
     margin: ($baseline * 4) auto ($baseline * 7) auto;
   }
   &__mobile-dropdown{
@@ -24,8 +24,7 @@ $nav-link-hover: transparentize(white, .12);
     order:2;
     flex-grow: 2;
     padding-left: 6px;
-
-    @include breakpoint($laptop){
+    @include breakpoint($tablet){
       display:none;
     }
     &::after{
@@ -90,6 +89,16 @@ $nav-link-hover: transparentize(white, .12);
 
   &__nav-items{
     display:none;
+    @include breakpoint($tablet){
+      display: block;
+      padding: (($nav-logo-height-mobile/2) - ($body-type-leading/2)) 0 0 18px;
+      height: $nav-logo-height;
+      list-style: none;
+      text-align:left;
+      order:2;
+      flex-grow: 2;
+      margin:0;
+    }
     @include breakpoint($laptop){
       display: block;
       padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
@@ -102,21 +111,22 @@ $nav-link-hover: transparentize(white, .12);
     }
     &__item{
       display:inline-block;
-      padding-right:18px;
-
-      &:before{
-        content: '';
-        width:0;
-        height:0;
-        margin-right:0;
+      padding-right:11px;
+      @include breakpoint($laptop){
+        display:inline-block;
+        padding-right:18px;
       }
 
       a{
         border-bottom: none;
         font-weight: $body-light;
-        font-size: 18px;
+        font-size: 16px;
         color:lighten($lightblue, 10%);
         line-height: $body-type-leading;
+        @include breakpoint($laptop){
+          font-size: 18px;
+          line-height: $body-type-leading;
+        }
         &:hover{
           color:$nav-link-hover;
         }
@@ -125,20 +135,30 @@ $nav-link-hover: transparentize(white, .12);
   }
   &__action-container{
     display:none;
-    @include breakpoint($laptop){
+    @include breakpoint($tablet){
       display:block;
       text-align: right;
-      height:$nav-logo-height;
+      height:$nav-logo-height-mobile;
       order:3;
       flex-grow: 1;
+    }
+    @include breakpoint($laptop){
+      height:$nav-logo-height;
     }
 
     .button-list{
       margin-bottom:0;
-      height:$nav-logo-height;
+      height:$nav-logo-height-mobile;
       // button height = border width + $button-type-leading + $baseline
       $button-height: 2px + $button-type-leading + $baseline;
-      padding: (($nav-logo-height/2) - ($button-height/2)) 0 0 0;
+      padding: (($nav-logo-height-mobile/2) - ($button-height/2)) 0 0 0;
+      @include breakpoint($laptop){
+        height:$nav-logo-height;
+        // button height = border width + $button-type-leading + $baseline
+        $button-height: 2px + $button-type-leading + $baseline;
+        padding: (($nav-logo-height/2) - ($button-height/2)) 0 0 0;
+      }
+
 
       &__item{
         margin-bottom:0;
