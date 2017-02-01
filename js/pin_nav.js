@@ -1,5 +1,5 @@
 var controller = new ScrollMagic.Controller();
 
 var scene = new ScrollMagic.Scene({triggerElement: "#nav-trigger", triggerHook: 0, duration: 0})
-                              .setPin("nav.main-nav")
+                              .setPin("nav.nav-bar")
                               .addTo(controller);

@@ -23,6 +23,8 @@
         {% do assets.addJs('jquery', 100) %}
         {% do assets.addJs('theme://bower_components/scrollmagic/scrollmagic/minified/ScrollMagic.min.js', {'priority':90, 'pipeline':false, 'group':'bottom'})%}
         {% do assets.addJs('theme://js/pin_nav.js', {'priority':85, 'pipeline':true, 'group':'bottom'}) %}
+        {% do assets.addJs('theme://js/dropdown.js', {'priority':86, 'pipeline':true, 'group':'bottom'}) %}
+        {% do assets.addJs('theme://js/mobile_dropdown.js', {'priority':87, 'pipeline':true, 'group':'bottom'}) %}
     {% endblock %}
     {{ assets.js() }}
 
@@ -31,9 +33,7 @@
 <body id="top" class="{{ page.header.body_classes }}">
   <div id="nav-trigger"></div>
     {% block main_nav %}
-        <nav class="main-nav">
-          {% include 'partials/navigation.html.twig' %}
-        </nav>
+      {% include 'partials/navigation.html.twig' %}
     {% endblock %}
     <div class="page-content">
       {% block body %}

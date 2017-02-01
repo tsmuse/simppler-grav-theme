@@ -1,28 +1,61 @@
-<div class="main-nav__logo-container">
-  <!-- <img src= {# {{ url('theme://img/logo.svg') }} #} class="main-nav__logo-container__logo"/> -->
-  {#
-  This partial is the raw SVG code for the logo. This is a super easy way to inject it and be able to control it via CSS.
-  Needs to be tested for browser compliance, but I'm pretty sure it should work everywhere we need it.
-  #}
-  <a href="{{base_url_absolute}}" class="logo-link">{% include 'partials/logo.html.twig' %}</a>
-</div>
-<ul class="main-nav__nav-items">
+<nav class="nav-bar">
+  <div class="main-nav">
+    <div class="main-nav__logo-container">
+      <!-- <img src= {# {{ url('theme://img/logo.svg') }} #} class="main-nav__logo-container__logo"/> -->
+      {#
+      This partial is the raw SVG code for the logo. This is a super easy way to inject it and be able to control it via CSS.
+      Needs to be tested for browser compliance, but I'm pretty sure it should work everywhere we need it.
+      #}
+      <a href="{{base_url_absolute}}" class="logo-link">{% include 'partials/logo.html.twig' %}</a>
+    </div>
+    <ul class="main-nav__nav-items">
+        {% for page in pages.children %}
+          {% if page.visible %}
+            {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+            <li class="{{ current_page }} main-nav__nav-items__item">
+                <a href="{{ page.url }}">
+                    {{ page.menu }}
+                </a>
+            </li>
+          {% endif %}
+        {% endfor %}
+        <li class=" main-nav__nav-items__item"><a href="https://blog.simppler.com">Blog</a></li>
+        <li class=" main-nav__nav-items__item"><a href="https://simppler.zendesk.com">Support</a></li>
+    </ul>
+    <div class="main-nav__action-container">
+      <ul class="button-list">
+        <li class="button-list__item"><button class="button--standout main-nav__nav-items__button" href="#"> Request a demo</button></li>
+        <li class="button-list__item"><button class="button--secondary main-nav__nav-items__button" href="#"> Log in</button></li>
+      </ul>
+    </div>
+    <div class="main-nav__mobile-dropdown">
+      <p class="main-nav__mobile-dropdown__button">
+        {% set dropdown_filled = false %}
+        {% for page in pages.children %}
+          {% if page.active and not dropdown_filled %}
+            <span class="dropdown-value">{{page.menu}}</span>
+            {% set dropdown_filled = true %}
+          {% endif %}
+        {% endfor %}
+      </p>
+    </div>
+  </div>
+  <ul class="mobile-nav-menu">
     {% for page in pages.children %}
       {% if page.visible %}
         {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
-        <li class="{{ current_page }} main-nav__nav-items__item">
+        <li class="{{ current_page }} mobile-nav-menu__item">
             <a href="{{ page.url }}">
                 {{ page.menu }}
             </a>
         </li>
       {% endif %}
     {% endfor %}
-    <li class=" main-nav__nav-items__item"><a href="https://blog.simppler.com">Blog</a></li>
-    <li class=" main-nav__nav-items__item"><a href="https://simppler.zendesk.com">Support</a></li>
-</ul>
-<div class="main-nav__action-container">
-  <ul class="button-list">
-    <li class="button-list__item"><button class="button--standout main-nav__nav-items__button" href="#"> Request a demo</button></li>
-    <li class="button-list__item"><button class="button--secondary main-nav__nav-items__button" href="#"> Log in</button></li>
+    <li class=" mobile-nav-menu__item"><a href="https://blog.simppler.com">Blog</a></li>
+    <li class=" mobile-nav-menu__item"><a href="https://simppler.zendesk.com">Support</a></li>
+    <hr class="mobile-nav-menu__spacer"></hr>
+    <li class=" mobile-nav-menu__item--cta"><a href="#">Request a demo</a></li>
+    <li class=" mobile-nav-menu__item"><a href="#">Log in</a></li>
   </ul>
-</div>
+
+</nav>

@@ -1,45 +1,105 @@
 $nav-height: $baseline * 7;
 $nav-logo-height: $nav-height;
+$nav-logo-height-mobile: $nav-height * 0.75;
 $nav-link-hover: transparentize(white, .12);
 
+//small mobile styles
+.nav-bar{
+  margin-bottom: $baseline * 7;
+}
 .main-nav{
-  width:80%;
+  width:100%;
   max-width: $grid-max-width;
   display:flex;
   min-height:$nav-height;
   background-color: $simpplerblue;
   padding:($baseline * 2) ($baseline * 4);
-  margin: ($baseline * 4) auto ($baseline * 7) auto;
+  margin: 0 auto 0 auto;
+  @include breakpoint($laptop){
+    width:80%;
+    margin: ($baseline * 4) auto ($baseline * 7) auto;
+  }
+  &__mobile-dropdown{
+    display:flex;
+    order:2;
+    flex-grow: 2;
+    padding-left: 6px;
+
+    @include breakpoint($laptop){
+      display:none;
+    }
+    &::after{
+      content: url("../img/single-arrow-down-nobg-light.svg");
+      display:inline-block;
+      position:relative;
+      width:16px;
+      max-width: 16px;
+      // left: 58px;
+      // top: 4px;
+      // left:139px;
+      // top:-21px;
+      order:2;
+      flex-grow:1;
+      top:9px;
+      left:-7px;
+    }
+
+    &__button{
+      order:1;
+      flex-grow:6;
+      padding:$baseline 0 0 10px;
+      margin:0;
+      cursor: pointer;
+      min-width: 140px;
+      // width:100%;
+      font-size: rem(14px);
+
+      border-bottom: 1px dotted $lightblue;
+      color:lighten($lightblue, 15%);
+      font-weight: $body-bold;
 
 
+    }
+  }
   &__logo-container{
     text-align:left;
     order: 1;
     flex-grow: 1;
-    height:$nav-logo-height; // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
+    // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
+    height:$nav-logo-height-mobile;
+    @include breakpoint($laptop){
+      height:$nav-logo-height; // was getting an extra 6px from someplace,line-height maybe?? Couldn't find where but this fixed it;
+
+    }
 
   .logo-link{
     display:inline-block;
     border-bottom: none;
   }
   .logo{
-      height:$nav-logo-height;
+      height:$nav-logo-height-mobile;
       fill:$lightblue;
       &:hover{
         fill:$nav-link-hover
+      }
+      @include breakpoint($laptop){
+        height:$nav-logo-height;
       }
     }
   }
 
   &__nav-items{
-    padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
-    height: $nav-logo-height;
-    list-style: none;
-    text-align:left;
-    order:2;
-    flex-grow: 2;
-    margin:0;
-
+    display:none;
+    @include breakpoint($laptop){
+      display: block;
+      padding: (($nav-logo-height/2) - ($body-type-leading/2)) 0 0 0;
+      height: $nav-logo-height;
+      list-style: none;
+      text-align:left;
+      order:2;
+      flex-grow: 2;
+      margin:0;
+    }
     &__item{
       display:inline-block;
       padding-right:18px;
@@ -64,10 +124,14 @@ $nav-link-hover: transparentize(white, .12);
     }
   }
   &__action-container{
-    text-align: right;
-    height:$nav-logo-height;
-    order:3;
-    flex-grow: 1;
+    display:none;
+    @include breakpoint($laptop){
+      display:block;
+      text-align: right;
+      height:$nav-logo-height;
+      order:3;
+      flex-grow: 1;
+    }
 
     .button-list{
       margin-bottom:0;
@@ -85,4 +149,39 @@ $nav-link-hover: transparentize(white, .12);
       }
     }
   }
+}
+.mobile-nav-menu{
+  display:none;
+  position:relative;;
+  width:100%;
+  background-color: lighten($lightblue,20%);
+  top:0;
+  padding:($baseline * 2) 20px $baseline 20px;
+  text-align: right;
+
+  .mobile-nav-menu__item{
+    padding:0;
+    a{
+      color: $medblue;
+      border-bottom: none;
+      display: block;
+      font-size: 18px;
+      min-height: $baseline * 7;
+    }
+    &--cta a{
+      color:$green;
+      border-bottom: none;
+      display: block;
+      font-size: 18px;
+      min-height: $baseline * 7;
+    }
+  }
+  .mobile-nav-menu__spacer{
+    border-top: none;
+    border-bottom: 1px solid $simpplerblue;
+    margin: $baseline*3 0;
+  }
+}
+.show-menu {
+  display: block !important;
 }

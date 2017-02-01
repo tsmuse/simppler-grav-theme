@@ -5,6 +5,15 @@
 
 // = Simppler base styles
 // Everything else should be imported from a modular partial
+//== Viewports
+// these should encompass smaller screens like the pre6 iphone, current bigger screen mobile devices
+// laptops and larger monitors.
+$mobile-small: 320px; //this var will not ever be actually used it's just here as a reminder of the default style's viewport
+$mobile: 375px;
+$laptop: 1024px;
+$big-screen: 1440px;
+$grid-max-width: 1600px;
+$grid-columns: 18; //override the number of cols set by Neat
 //== Colors - Simppler Palette
 //=== primary blues
 $drkblue:#101C2E; //rgba(16, 28, 46, 1)
@@ -74,8 +83,8 @@ $dropdown-padding: rem(18px);
 $transition-animation: 0.15s ease-in-out;
 $table-border-padding: 12px;
 $table-cell-padding: 6px;
-$grid-columns: 18; //override the number of cols set by Neat
-$grid-max-width: 1600px;
+
+
 
 //= Global Styles
 *{
@@ -116,7 +125,12 @@ section{
 
 #nav-trigger{
   position:absolute;
-  top:$baseline * 4;
+  top:0;
+  @include breakpoint($laptop){
+    position:absolute;
+    top:$baseline * 4;
+  }
+
 }
 
 //= Style guide elements
@@ -328,14 +342,7 @@ ul, ol,
 ul li,
 .one-line-list__item{
   padding: 0 0 $baseline-grid-size 0;
-  &:before{
-    content:url(../img/ul-bullet.svg);
-    display:inline-block;
-    vertical-align: middle;
-    width:18px;
-    height:18px;
-    margin-right:7px;
-  }
+
   // NOTE: specific typeographic styles are set on each individual instance of a .one-line-list__item
 }
 
@@ -374,6 +381,90 @@ ol li{
 .img-container img{
   width:100%;
 }
+//== Dropdown
+.dropdown {
+  margin-bottom:rem(($baseline-grid-size * 3));
+  line-height: rem(($baseline-grid-size *4));
+
+  .dropdown-container {
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    border-bottom:1.5px dotted $simpplerblue;
+  }
+  .dropdown-button {
+    background: white;
+    cursor: pointer;
+    float: right;
+    font-size: rem(14px);
+    line-height: rem(($baseline-grid-size * 4));
+    margin: 0;
+    padding: 0 ($dropdown-padding * 2.5) 0 rem(3px);
+    position: relative;
+    font-weight: $body-bold;
+
+    &::after{
+      content: url(../img/single_arrow_down_nobg.svg);
+      width:rem(11px);
+      display: block;
+      position: absolute;
+      right: $dropdown-padding;
+      top: rem(3px); //Note: this value might need to be tweaked on implimentation depending on the container
+    }
+  }
+  .dropdown-button:hover {
+    background-color: $simpplerblue;
+    color:white;
+    font-weight: $body-bold;
+  }
+  .dropdown-button::after {
+
+  }
+  .dropdown-menu {
+    background: white;
+    border: 1.5px solid $simpplerblue;
+    border-radius: 1px;
+    color: $drkblue;
+    cursor: pointer;
+    display: none;
+    margin: 0;
+    overflow: show;
+    padding: 0;
+    position: absolute;
+    right: 0;
+    top: rem(($baseline-grid-size * 4));
+    transition: all 0.2s ease-in-out;
+    width: 228px; // this is going to depend on the content in the menu
+    z-index: 99999;
+    text-align: left;
+  }
+  .dropdown-menu li {
+    //border-bottom: $dropdown-inner-border;
+    color: $drkblue;
+    font-size:rem(13px);
+    line-height: rem($baseline-grid-size * 3);
+    list-style: none;
+    padding: rem($baseline-grid-size * 2);
+  }
+  .dropdown-menu li:hover {
+    background: $simpplerblue;
+    color:white;
+    font-weight: $body-bold;
+  }
+  .dropdown-menu li:first-child {
+    border-top-left-radius: $simppler-border-radius;
+    border-top-right-radius: $simppler-border-radius;
+  }
+  .dropdown-menu li:last-child {
+    border: 0;
+    border-bottom-left-radius: $simppler-border-radius;
+    border-bottom-right-radius: $simppler-border-radius;
+  }
+  .show-menu {
+    display: block;
+  }
+}
+
 //== Page styles
 @import "_nav";
 @import "_footer";
