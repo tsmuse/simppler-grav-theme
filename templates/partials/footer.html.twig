@@ -15,19 +15,31 @@
       {% set first_half = ((social_count / 2)|round) - 1 %}
       <ul class="footer__links__list--left">
         {% for i in range(0, first_half) %}
+        {% set imgpath = "theme://img/" ~ site.social[i].icon ~ ".svg" %}
             <li class="footer__links__list__item">
-                <a href="{{ site.social[i].url }}">
-                    {{ site.social[i].icon }}
-                </a>
+              <a href="{{ site.social[i].url }}">
+                <div class="footer__links__list__item__icon">
+                  <img src="{{url(imgpath)}}"/>
+                </div>
+                <div class="footer__links__list__item__label">
+                    {{ site.social[i].icon|capitalize }}
+              </div>
+            </a>
             </li>
         {% endfor %}
       </ul>
       <ul class="footer__links__list--right">
         {% for i in range((first_half + 1), (site.social|length) - 1) %}
+        {% set imgpath = "theme://img/" ~ site.social[i].icon ~ ".svg" %}
             <li class="footer__links__list__item">
-                <a href="{{ site.social[i].url }}">
-                    {{ site.social[i].icon }}
-                </a>
+              <a href="{{ site.social[i].url }}">
+                <div class="footer__links__list__item__icon">
+                  <img src="{{url(imgpath)}}"/>
+                </div>
+                <div class="footer__links__list__item__label">
+                    {{ site.social[i].icon|capitalize }}
+              </div>
+            </a>
             </li>
         {% endfor %}
       </ul>

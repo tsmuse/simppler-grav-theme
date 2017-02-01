@@ -5,7 +5,11 @@ footer{
   width:100%;
   background-color: lighten($lightblue, 22%);
   min-height:100px;
-  padding:$baseline *10;
+  padding:$baseline * 4;
+  @include breakpoint($laptop){
+    min-height:100px;
+    padding:$baseline *10;
+  }
 }
 .footer__grid{
   @include outer-container($grid-max-width);
@@ -15,24 +19,33 @@ footer{
   }
 }
 .footer__links{
-  @include span-columns(18);
+  @include fill-parent;
   @include clearfix;
   padding-top:$baseline * 2;
+  @include breakpoint($tablet){
+    @include span-columns(8);
+  }
   @include breakpoint($laptop){
-    @include span-columns(9);
+    @include span-columns(6);
   }
 
   &__title{
     @include fill-parent;
+    text-align: center;
     color:$simpplerblue;
     font-size: 20px;
-    line-height: $baseline * 6;
+    line-height: $baseline * 4;
     font-weight: $body-reg;
-    margin-bottom: 0;
-    height:$footer-logo-height;
+    margin-bottom:$baseline * 2;
+    @include breakpoint($tablet){
+      font-size: 22px;
+    }
     @include breakpoint($laptop){
-      @include span-columns(9 of 9);
       font-size: 30px;
+      line-height: $baseline * 6;
+      height:$footer-logo-height;
+      margin-bottom: 0;
+      text-align: left;
     }
   }
 
@@ -42,44 +55,62 @@ footer{
 
     &__item{
 
-      &:before{
-        content: '';
-        width:0;
-        height:0;
-        margin-right:0;
+      &__icon{
+        display:inline-block;
+        max-width: $baseline * 7;
+        max-height: $baseline * 7;
+
+        img{
+          width:100%;
+        }
       }
+      &__label{
+        display:inline-block;
+        vertical-align: bottom;
+        height: $baseline * 7;
+      }
+
       a{
         font-size: 18px;
         line-height: $baseline * 4;
         font-weight: $body-light;
-        color:$simpplerblue;
+        color:$medblue;
         border-bottom: none;
       }
     }
   }
-  &__list--left{
-    @extend .footer__links__list;
-    @include fill-parent;
-    @include breakpoint($laptop){
-      @include span-columns(2 of 9);
-    }
-  }
+  &__list--left,
   &__list--right{
     @extend .footer__links__list;
-    @include fill-parent;
+    width:55%;
+    margin:0 auto;
+    text-align: left;
     @include breakpoint($laptop){
-      @include span-columns(2 of 9);
+      @include span-columns(3 of 6);
+      text-align: left;
+      max-width: 203px;
     }
   }
 }
 .footer__contact{
-  @include span-columns(9);
   @include clearfix;
+  @include fill-parent;
+  @include breakpoint($tablet){
+    @include span-columns(10);
+  }
+  @include breakpoint($laptop){
+    @include span-columns(12);
+  }
 
   &__logo{
     @include clearfix;
-    @include span-columns(4.5 of 9);
-    margin-bottom: $baseline * 2;
+    @include fill-parent;
+    margin-bottom: $baseline;
+    @include breakpoint($laptop){
+      @include span-columns(4.5 of 9);
+      margin-bottom: $baseline * 2;
+    }
+
 
     .logo-link{
       @include clearfix;
@@ -99,14 +130,29 @@ footer{
     }
   }
   &__cta{
-    @include span-columns(9 of 9);
-  }
+    @include fill-parent;
+    text-align: center;
+    @include breakpoint($tablet){
+      text-align: left;
+    }
+    @include breakpoint($laptop){
 
+      @include span-columns(9 of 9);
+    }
+
+    p{
+      text-align: left;
+    }
+  }
   .button--standout{
     font-size: 20px;
     line-height: 30px;
     letter-spacing: 0.8px;
-    padding:$baseline
+    padding:$baseline;
+    margin-bottom:$baseline * 4;
+    @include breakpoint($laptop){
+      margin-bottom:$baseline * 2;
+    }
   }
 }
 .footer__nav{
