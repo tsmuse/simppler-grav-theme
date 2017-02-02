@@ -12,8 +12,11 @@
     margin-bottom: $baseline * 3;
   }
   &__blurb{
-    @include span-columns(9);
-    @include shift(1);
+    @include fill-parent;
+    @include breakpoint($laptop){
+      @include span-columns(14);
+    }
+
      p{
        font-size: 20px;
        font-weight: $body-light;
@@ -24,10 +27,21 @@
   }
 
   &__item{
-    @include span-columns(6);
+    @include fill-parent;
+    @include breakpoint($tablet){
+      @include span-columns(14);
+      @include shift(2);
+    }
+    @include breakpoint($laptop){
+      margin-left:0;// clear the shift() in the tablet style
+      @include span-columns(6);
+    }
+
 
     &__summary{
       font-size: 18px;
+      line-height: $baseline * 4;
+      margin-bottom:$baseline;
     }
 
   }

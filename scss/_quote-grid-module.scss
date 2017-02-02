@@ -1,4 +1,4 @@
-$quote-card-height: $baseline * 33; //198px
+$quote-card-height: $baseline * 36; //198px
 .quote-grid{
   @extend .grid;
 
@@ -13,15 +13,13 @@ $quote-card-height: $baseline * 33; //198px
         @include shift(2);
     }
     @include breakpoint($laptop){
-      margin-left:0; //clearing the shift(2) from the tablet style above 
+      margin-left:0; //clearing the shift(2) from the tablet style above
       @include span-columns(8);
-      height:$quote-card-height + 50px;
+      height:$quote-card-height;
       padding:$baseline * 4;
     }
     @include breakpoint($big-screen){
       @include span-columns(6.5);
-      height:$quote-card-height;
-      padding:$baseline * 4;
     }
     &:nth-of-type(3n),
     &:first-of-type{
