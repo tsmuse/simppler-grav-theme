@@ -1,7 +1,7 @@
 .home-cta-button{
   @extend .grid;
   @include clearfix;
-  padding: ($baseline * 8) 0;
+
   &__button{
     text-align: center;
     @include fill-parent;
@@ -20,11 +20,18 @@
 
     .button--homeCTA{
       @extend .button--standout;
-      width:60%;
+      width:100%;
       padding:($baseline * 2);
       font-size: 20px;
       border-width:3px;
       line-height: $baseline * 6;
+      @include breakpoint($tablet){
+        width:60%;
+      }
+      @include breakpoint($laptop){
+        width:85%;
+        max-width: 300px;
+      }
     }
   }
   &__copy{
