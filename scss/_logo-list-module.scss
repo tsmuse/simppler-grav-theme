@@ -1,3 +1,4 @@
+$logo-list-item-height: $baseline * 33;
 .logo-list{
   @extend .grid;
   @include clearfix;
@@ -30,8 +31,8 @@
       &__item{
         @extend .button-list__item;
         padding:$baseline;
-        max-height:200px;
-        width:200px;
+        max-height:$logo-list-item-height;
+        width:$logo-list-item-height;
         overflow: hidden;
 
         img{

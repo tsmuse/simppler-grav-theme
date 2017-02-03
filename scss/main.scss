@@ -126,16 +126,19 @@ section{
   border-bottom:$baseline solid $simpplerblue;
 }
 
-.page-content{}
+.page-content{
+  padding-top: $baseline * 9;
+  @include breakpoint($tablet){
+    padding-top:$baseline * 9;
+  }
+  @include breakpoint($laptop){
+    padding-top:0;
+  }
+}
 
 #nav-trigger{
   position:absolute;
-  top:0;
-  @include breakpoint($laptop){
-    position:absolute;
-    top:$baseline * 4;
-  }
-
+  top:$baseline * 4;
 }
 
 //= Style guide elements

@@ -1,6 +1,7 @@
-$quote-card-height: $baseline * 36; //198px
+$quote-card-height: $baseline * 36; //216px
 .quote-grid{
   @extend .grid;
+
 
   &__quote{
     @include fill-parent;
@@ -20,6 +21,9 @@ $quote-card-height: $baseline * 36; //198px
     }
     @include breakpoint($big-screen){
       @include span-columns(6.5);
+    }
+    &:last-of-type{
+      margin-bottom:$baseline;
     }
     &:nth-of-type(3n),
     &:first-of-type{

@@ -1,10 +1,18 @@
 .home-cta-button{
   @extend .grid;
   @include clearfix;
+  margin-bottom: $baseline * 3;
+  @include breakpoint($tablet){
+    margin-bottom:$baseline;
+  }
+  @include breakpoint($laptop){
+    margin-bottom:0;
+  }
+
 
   &__button{
     text-align: center;
-    @include fill-parent;
+    @include span-columns(18);
     @include breakpoint($tablet){
       @include span-columns(18);
       margin-bottom:$baseline * 3;
@@ -36,14 +44,15 @@
   }
   &__copy{
     @include clearfix;
-    @include fill-parent;
-    padding:0 $baseline * 4;
+    @include span-columns(18);
+    padding:0;
     @include breakpoint($tablet){
       @include span-columns(18);
 
     }
     @include breakpoint($laptop){
       @include span-columns(9);
+      float:right;
     }
 
 
