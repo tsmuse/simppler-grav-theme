@@ -6,22 +6,41 @@ $how-step-img-height: 300px;
 .how-it-works__step--right{
   @extend .grid;
   @include clearfix;
-  margin-bottom:($baseline * 10);
+  margin-bottom:$baseline * 2;
+  @include breakpoint($laptop){
+    margin-bottom:$baseline * 6;
+  }
+  @include breakpoint($laptop){
+    margin-bottom:$baseline * 8;
+  }
 
   &__image{
-    @include span-columns(8 of 18);
-    height:$how-step-img-height;
-    overflow:hidden;
+    @include span-columns(18);
+    @include breakpoint($laptop){
+      padding-top:$baseline;
+      @include span-columns(8 of 18);
+    }
   }
   &__text{
-    @include span-columns(6 of 18);
-    height:$how-step-img-height;
-    padding: ($baseline * 4) 12px;
+    @include span-columns(18);
+    padding: 0;
+    @include breakpoint($laptop){
+      @include span-columns(10 of 18);
+    }
   }
 }
-.how-it-works__step--left__image{
-  @include shift(2);
+.how-it-works__step--left__text{
+  @include breakpoint($laptop){
+    padding-left: 25px;
+  }
 }
 .how-it-works__step--right__text{
-  @include shift(2);
+  @include breakpoint($laptop){
+    padding-right: 25px;
+  }
+}
+.how-it-works__step--right__image{
+  @include breakpoint($laptop){
+    float:right;
+  }
 }

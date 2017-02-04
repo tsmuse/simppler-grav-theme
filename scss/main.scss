@@ -44,21 +44,21 @@ $baseline-grid-size: 6px;
 $baseline: $baseline-grid-size; // a less verbose helper var. Why two? Readability.
 
 //=== Standard type sizes
-$body-type-size:16px; //this must be in px to be the basis for all rems
+$body-type-size: 16px; //this must be in px to be the basis for all rems
 $body-type-leading: $baseline-grid-size * 4;
-$page-title-size: rem(40px);
+$page-title-size: 40px;
 $page-title-leading: $baseline-grid-size * 8;
-$page-subtitle-size: rem(24px);
+$page-subtitle-size: 24px;
 $page-subtitle-leading: $baseline-grid-size * 5;
-$page-subsection-size: rem(14px);
+$page-subsection-size: 14px;
 $page-subsection-leading: $baseline-grid-size * 3;
-$page-caption-text: rem(13px);
+$page-caption-text: 13px;
 $page-caption-leading: $baseline-grid-size * 3;
-$card-title-size: rem(26px);
+$card-title-size: 26px;
 $card-title-leading: $baseline-grid-size * 5;
-$card-subtitle-size: rem(14px);
+$card-subtitle-size: 14px;
 $card-subtitle-leading: $baseline-grid-size * 3;
-$button-type-size: rem(14px);
+$button-type-size: 14px;
 $button-type-leading: $baseline-grid-size * 4;
 
 //== Background images
@@ -146,20 +146,30 @@ section{
 h1,
 .page-title{
   font-family:$header-face;
-  font-size: $page-title-size;
-  line-height: $page-title-leading;
-  margin:0 0 ($baseline-grid-size * 2) 0;
   color:$medblue;
+  font-size: rem(($page-title-size - 2px)); // 38px
+  line-height: $page-title-leading - $baseline; //42px
+  margin:0 0 ($baseline * 2) 0;
+  @include breakpoint($tablet){
+    font-size: rem($page-title-size);
+    line-height: $page-title-leading;
+    margin:0 0 ($baseline) 0;
+  }
 }
 
 //== Page subtitle
 h2,
 .page-subtitle{
   font-weight: $body-light;
-  font-size: $page-subtitle-size;
-  line-height: $page-subtitle-leading;
-  margin:0 0 ($baseline-grid-size * 2) 0;
   color:$lightblue;
+  font-size: rem(($page-subtitle-size - 6px));//18px
+  line-height: $page-subtitle-leading - $baseline; //24px
+  margin:0 0 ($baseline * 2) 0;
+  @include breakpoint($tablet){
+    font-size: $page-subtitle-size;
+    line-height: $page-subtitle-leading;
+  }
+
 }
 
 //== Page subsection

@@ -1,0 +1,10 @@
+<section class="how-it-works">
+  <div class={{page.header.img_first ? "how-it-works__step--left" : "how-it-works__step--right" }}>
+    <div class="img-container {{page.header.img_first ? "how-it-works__step--left__image" : "how-it-works__step--right__image" }}">
+      {{ (page.media.images|first.html )}}
+    </div>
+    <div class="{{page.header.img_first ? "how-it-works__step--left__text" : "how-it-works__step--right__text" }}">
+          {{ content }}
+    </div>
+  </div>
+</section>

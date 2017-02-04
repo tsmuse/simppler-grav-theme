@@ -1,11 +1,23 @@
 .text-title{
   @extend .grid;
   @include clearfix;
-  margin-bottom:$baseline * 6;
+  margin-bottom:$baseline * 4;
+  @include breakpoint($laptop){
+    margin-bottom:$baseline * 6;
+  }
+
   &__title{
     @include span-columns(18);
+    padding-top:$baseline * 3;
   }
   &__blurb{
-    @include span-columns(12);
+    @include span-columns(18);
+    margin-bottom:0;
+    @include breakpoint($laptop){
+      @include span-columns(15);
+    }
+    @include breakpoint($big-screen){
+      @include span-columns(13);
+    }
   }
 }
