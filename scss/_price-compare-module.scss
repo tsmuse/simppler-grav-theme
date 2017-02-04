@@ -10,10 +10,19 @@ $tier-offset:1.5;
     @include span-columns(18);
     @include clearfix;
     @extend .row;
+    @include breakpoint($laptop){
+
+    }
 
     &__tier{
-      @include span-columns($tier-width);
       @include clearfix;
+      @include span-columns(18);
+      @include breakpoint($tablet){
+        @include span-columns(6);
+      }
+      @include breakpoint($laptop){
+        @include span-columns($tier-width);
+      }
       //border: 1px solid $simpplerblue;
 
       &__title-section{
@@ -48,10 +57,18 @@ $tier-offset:1.5;
         @include span-columns($tier-width of $tier-width);
 
       }
+      &__mobile-cta{
+        display:block;
+        @include breakpoint($tablet){
+          display:none;
+        }
+      }
       &:first-of-type{
-        @include span-columns($tier-width);
-        @include shift($tier-offset);
-        @include clearfix;
+        @include breakpoint($laptop){
+          @include span-columns($tier-width);
+          @include shift($tier-offset);
+          @include clearfix;
+        }
       }
       .price-amount{
         font-size: 56px;
@@ -71,16 +88,24 @@ $tier-offset:1.5;
     @include span-columns(18);
     @include clearfix;
     @extend .row;
+    display:none;
+    @include breakpoint($tablet){
+      display:block;
+    }
 
     &__bottom{
-      @include span-columns($tier-width);
-      // background: $simpplerblue-dots;
+      @include span-columns(6);
       border-bottom:$baseline*3 solid $simpplerblue;
       min-height: $baseline * 5;
-
-      &:first-of-type{
+      @include breakpoint($laptop){
         @include span-columns($tier-width);
-        @include shift($tier-offset);
+      }
+      &:first-of-type{
+        @include breakpoint($laptop){
+          @include span-columns($tier-width);
+          @include shift($tier-offset);
+        }
+
       }
     }
   }
