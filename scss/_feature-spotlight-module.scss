@@ -1,31 +1,59 @@
 $feature-spotlight-img-height: 300px;
 
 .feature-spotlight{
-  @extend .grid;
-  padding:($baseline * 9) 0;
+  // max-width: 2000px;
+  // margin: 0 auto;
+}
 
+.feature-spotlight__content{
+  @extend .grid;
+  padding:$baseline * 2;
+  @include breakpoint($laptop){
+    padding:($baseline * 9) 0;
+  }
 
   &__title{
     @include span-columns(16);
-    @include shift(2);
+
     font-size:20px;
     line-height: $baseline * 5;
     letter-spacing: 1px;
     font-family: $header-face;
+    @include breakpoint($laptop){
+      @include shift(2);
+    }
   }
   &__image{
-    @include span-columns(6);
-    @include shift(2);
-    height: $feature-spotlight-img-height;
-    overflow:hidden;
+    @include span-columns(18);
+    @include breakpoint($tablet){
+      @include span-columns(8);
+      padding-top:$baseline;
+    }
+    @include breakpoint($laptop){
+      height: $feature-spotlight-img-height;
+      overflow:hidden;
+      @include span-columns(6);
+      @include shift(2);
+    }
   }
   &__text{
-    @include span-columns(8);
+    @include span-columns(18);
+    @include breakpoint($tablet){
+      @include span-columns(10);
+    }
+    @include breakpoint($laptop){
+      @include span-columns(8);
+    }
 
     p{
-      font-size: 18px;
       font-weight: $body-light;
-      letter-spacing: 0.7px;
+      letter-spacing: 0.2px;
+      font-size: 16px;
+      padding:0 12px;
+      @include breakpoint($laptop){
+        font-size: 18px;
+        letter-spacing: 0.7px;
+      }
     }
   }
 }
