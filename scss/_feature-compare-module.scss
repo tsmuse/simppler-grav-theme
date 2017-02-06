@@ -6,25 +6,32 @@ $table-border: 4px;
   margin-bottom: $baseline * 4;
 
   table{
-    @include span-columns(12);
-    @include shift(3);
-    // border: 1px solid $simpplerblue;
     border-collapse: collapse;
     table-layout: fixed;
-
+    @include breakpoint($tablet){
+      @include span-columns(18);
+    }
+    @include breakpoint($laptop){
+      @include span-columns(12);
+      @include shift(3);
+    }
     thead th{
+      min-width:$column * 2;
       width: $column * 2;
       font-size: 18px;
       line-height: $baseline * 5;
       padding:$baseline 0;
+      @include breakpoint($tablet){
+        width:auto;
+        min-width: $column;
 
+      }
       &:first-of-type{
         width:$column * 9;
+        text-align: left;
       }
     }
-    // tbody tr:nth-of-type(2n){
-    //   background: $lightblue-dots;
-    // }
+
     tbody tr{
       border-bottom: 1px solid $lightblue;
 
@@ -50,6 +57,62 @@ $table-border: 4px;
     }
   }
 }
+//responsive table styles
+div.table-wrapper{
+  position: relative;
+  margin-bottom: 20px;
+  overflow: hidden;
+  @include clearfix;
+
+  .pinned{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 43%;
+    overflow: hidden;
+    overflow-x: scroll;
+    @include clearfix;
+    background-color: white;
+
+    table {
+      border-right: none;
+      border-left: none;
+      width: 100%;
+    }
+    table th,
+    table td {
+      white-space: nowrap;
+    }
+    td{
+      display: none;
+    }
+    td:first-of-type{
+      display:table-cell;
+    }
+    td:first-of-type,
+    th:first-of-type{
+      width:$column * 2;
+      min-height: 48px;
+      padding: $baseline 0;
+    }
+    td:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  div.scrollable{
+    overflow: scroll; overflow-y: hidden;
+    table {
+      margin-left: 43%;
+
+      th:first-child,
+      td:first-child{
+        display: none;
+      }
+    }
+  }
+}
+
 
 .check{
   display:inline-block;

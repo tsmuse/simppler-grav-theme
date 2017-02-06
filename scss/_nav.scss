@@ -9,6 +9,7 @@ nav.pinned{
   @include breakpoint($laptop){
     position:fixed;
     margin: 0 auto;
+    z-index:1000;
 
     .main-nav{
       margin:0 auto;
@@ -29,6 +30,7 @@ div.pinned-nav{
 .nav-bar{
   width:100%;
   position:fixed;
+  z-index:1000;
   @include breakpoint($tablet){
     margin-bottom: $baseline * 4;
   }
