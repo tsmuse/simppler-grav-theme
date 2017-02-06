@@ -3,17 +3,35 @@
 
   &__img-container{
     width: 100%;
-    background-color: $drkblue;
+    margin:0 auto;
     text-align: center;
-
-    max-height:$baseline * 63;
-    overflow: hidden;
-
-    img{
-      width:100%;
-      max-width: 2000px;
-      max-height:420px;
-
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    // all of these heights asumes a base img sized: 1600x582
+    min-height:$baseline * 19;
+    max-width: 320px;
+    @include breakpoint($mobile){
+      min-height: $baseline * 22;
+      max-width: $mobile;
     }
+    @include breakpoint(596px){
+      min-height: $baseline * 25;
+      max-width: 596px;
+    }
+    @include breakpoint($tablet){
+      min-height: $baseline * 46;
+      max-width: $tablet;
+    }
+    @include breakpoint($laptop){
+      min-height: $baseline * 56;
+      max-width: $laptop;
+    }
+    @include breakpoint($big-screen){
+      min-height: $baseline * 81;
+      max-width: $grid-max-width;
+    }
+
+
   }
 }
