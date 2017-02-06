@@ -1,36 +1,86 @@
+.cta-w-button{
+  @extend .color-bg;
+}
 .button--bigCTA{
   @extend .button--standout;
   width:100%;
-  padding:($baseline * 3) 20px;
-  font-size: 30px;
+  padding:($baseline * 2) 15px;
+  font-size: 24px;
   border-width:3px;
-  line-height: $baseline * 6;
-
+  line-height: $baseline * 5;
+  @include breakpoint($tablet){
+    padding:($baseline * 3) 20px;
+    font-size: 30px;
+    border-width:3px;
+    line-height: $baseline * 6;
+  }
 }
 
 .cta-button{
   @extend .grid;
   @include clearfix;
-  padding: ($baseline * 8) 0;
+  padding: ($baseline * 4) 0;
+  @include breakpoint($tablet){
+    padding: ($baseline * 5) 0;
+  }
+  @include breakpoint($laptop){
+    padding: ($baseline * 8) 0;
+  }
+
 
   &__copy{
-    @include span-columns(9);
-    @include shift(2);
     @include clearfix;
+    @include fill-parent;
+    padding:0 20px;
+    @include breakpoint($laptop){
+      @include span-columns(8);
+      @include shift(2);
+    }
+    @include breakpoint($big-screen){
+      @include span-columns(9);
+      @include shift(2);
+    }
+
     p{
-      font-size: 20px;
       font-weight: $body-light;
-      letter-spacing: 0.8px;
-      line-height: $baseline * 5;
       color:lighten($lightblue, 20%);
+      font-size: 18px;
+      letter-spacing: 1px;
+      line-height: $baseline * 4;
+      margin:0 auto;
+      @include breakpoint($tablet){
+        font-size: 20px;
+        letter-spacing: 0.8px;
+        line-height: $baseline * 5;
+      }
+
+
       // @include span-columns(8 of 11);
       // @include shift(5 of 18);
     }
   }
 
   &__button{
-    @include span-columns(6);
-    padding-top:$baseline * 5;
+    @include clearfix;
+    @include span-columns(16);
+    @include shift(1);
+    padding-top:$baseline * 3;
+    @include breakpoint($tablet){
+      //margin-left: 0; //clear the above shift()
+      @include span-columns(14);
+      @include shift(2);
+      padding-top:$baseline * 5;
+    }
+    @include breakpoint($laptop){
+      margin-left: 0; //clear the above shift()
+      // padding-top:$baseline * 10.75;
+      @include span-columns(7);
+    }
+    @include breakpoint($big-screen){
+      @include span-columns(6);
+
+    }
+
 
   }
 }

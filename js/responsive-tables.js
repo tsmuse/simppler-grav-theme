@@ -1,3 +1,5 @@
+// This is a lightly modified version of Zurb's responsive table script
+// from: http://zurb.com/playground/projects/responsive-tables/responsive-tables.js
 $(document).ready(function() {
     var switched = false;
     var updateTables = function() {
