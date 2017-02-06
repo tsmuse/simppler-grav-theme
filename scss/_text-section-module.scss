@@ -4,7 +4,8 @@
   margin-bottom: $baseline * 3;
 
   p{
-    @include span-columns(9);
-    @include shift(5);
+    @include fill-parent;
+    margin:0 auto $baseline * 2 auto;
+
   }
 }
