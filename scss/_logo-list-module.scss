@@ -5,17 +5,21 @@ $logo-list-item-height: $baseline * 33;
 
   margin-bottom: $baseline * 3;
   &__title{
-      @include span-columns(14);
-      @include shift(2);
+      @include fill-parent;
   }
 
   &__text{
-    @include span-columns(9);
-    @include shift(2);
     @include clearfix;
-
+    @include fill-parent;
+    margin-bottom:$baseline * 3;
+    // @include breakpoint($laptop){
+    //   @include span-columns(9);
+    // }
     p{
       margin: 0 auto;
+      @include breakpoint($laptop){
+          margin:0;
+      }
     }
   }
 
