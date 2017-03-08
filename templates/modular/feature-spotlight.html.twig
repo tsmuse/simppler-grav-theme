@@ -1,11 +1,9 @@
-<section class="feature-spotlight {{ page.header.color_bg ? 'color-bg' : '' }}">
-  <div class="feature-spotlight__content" >
-    <h2 class="feature-spotlight__content__title {{ page.header.color_bg ? 'light-text' : '' }}">{{ page.header.title }}</h2>
-    <div class="img-container feature-spotlight__content__image">
-      {{ (page.media.images|first.html )}}
-    </div>
-    <div class="feature-spotlight__content__text {{ page.header.color_bg ? 'light-text' : '' }}">
-      {{ content }}
-    </div>
+<section class="feature-spotlight">
+  <div class="feature-spotlight__text">
+        {{ content }}
   </div>
+  <div class="feature-spotlight__image">
+    {{ (page.media.images|first.html )}}
+  </div>
+
 </section>

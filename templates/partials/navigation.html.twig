@@ -19,13 +19,13 @@
             </li>
           {% endif %}
         {% endfor %}
-        <li class=" main-nav__nav-items__item"><a href="https://blog.simppler.com">Blog</a></li>
-        <li class=" main-nav__nav-items__item"><a href="https://simppler.zendesk.com">Support</a></li>
+        <li class=" main-nav__nav-items__item"><a href="{{site.blog_url}}">Blog</a></li>
+        <li class=" main-nav__nav-items__item"><a href="{{site.support_url}}">Support</a></li>
     </ul>
     <div class="main-nav__action-container">
       <ul class="button-list">
-        <li class="button-list__item"><button class="button--standout main-nav__nav-items__button" href="#"> Request a demo</button></li>
-        <li class="button-list__item"><button class="button--secondary main-nav__nav-items__button" href="#"> Log in</button></li>
+        <li class="button-list__item"><a class="button--standout main-nav__nav-items__button" href="{{site.demo_form_url}}"> Request a demo</a></li>
+        <li class="button-list__item"><a class="button--secondary main-nav__nav-items__button" href="{{site.login_url}}"> Log in</a></li>
       </ul>
     </div>
     <div class="main-nav__mobile-dropdown">
@@ -51,11 +51,11 @@
         </li>
       {% endif %}
     {% endfor %}
-    <li class=" mobile-nav-menu__item"><a href="https://blog.simppler.com">Blog</a></li>
-    <li class=" mobile-nav-menu__item"><a href="https://simppler.zendesk.com">Support</a></li>
+    <li class=" mobile-nav-menu__item"><a href="{{site.blog_url}}">Blog</a></li>
+    <li class=" mobile-nav-menu__item"><a href="{{site.support_url}}">Support</a></li>
     <hr class="mobile-nav-menu__spacer"></hr>
-    <li class=" mobile-nav-menu__item--cta"><a href="#">Request a demo</a></li>
-    <li class=" mobile-nav-menu__item"><a href="#">Log in</a></li>
+    <li class=" mobile-nav-menu__item--cta"><a href="{{site.demo_form_url}}">Request a demo</a></li>
+    <li class=" mobile-nav-menu__item"><a href="{{site.login_url}}">Log in</a></li>
   </ul>
 
 </nav>
