@@ -8,6 +8,8 @@
   font-size: 24px;
   border-width:3px;
   line-height: $baseline * 5;
+  display: inline-block;
+  text-align: center;
   @include breakpoint($tablet){
     padding:($baseline * 3) 20px;
     font-size: 30px;

@@ -32,16 +32,16 @@ footer{
   &__title{
     @include fill-parent;
     text-align: center;
-    color:$simpplerblue;
+    color:$lightblue;
     font-size: 20px;
     line-height: $baseline * 4;
-    font-weight: $body-reg;
+    font-weight: $body-light;
     margin-bottom:$baseline * 2;
     @include breakpoint($tablet){
       font-size: 22px;
     }
     @include breakpoint($laptop){
-      font-size: 26px;
+      font-size: 24px;
       line-height: $baseline * 6;
       height:$footer-logo-height;
       margin-bottom: 0;
@@ -132,6 +132,7 @@ footer{
   &__cta{
     @include fill-parent;
     text-align: center;
+
     @include breakpoint($tablet){
       text-align: left;
     }
@@ -149,9 +150,10 @@ footer{
     line-height: 30px;
     letter-spacing: 0.8px;
     padding:$baseline;
+    display:inline-block;
     margin-bottom:$baseline * 4;
     @include breakpoint($laptop){
-      margin-bottom:$baseline * 2;
+      margin-bottom:$baseline;
     }
   }
 }
