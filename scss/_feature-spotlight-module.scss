@@ -5,12 +5,14 @@ $feature-spotlight-img-height: 300px;
   // margin: 0 auto;
 }
 
-.feature-spotlight__content{
+.feature-spotlight{
   @extend .grid;
-  padding:$baseline * 2;
-  @include breakpoint($laptop){
-    padding:($baseline * 9) 0;
-  }
+  @include clearfix;
+  // @extend .grid;
+  // padding:$baseline * 2;
+  // @include breakpoint($laptop){
+  //   padding:($baseline * 9) 0;
+  // }
 
   &__title{
     @include span-columns(16);
@@ -25,25 +27,28 @@ $feature-spotlight-img-height: 300px;
   }
   &__image{
     @include span-columns(18);
+    // @include breakpoint($tablet){
+    //   @include span-columns(8);
+    //   padding-top:$baseline;
+    // }
     @include breakpoint($tablet){
-      @include span-columns(8);
-      padding-top:$baseline;
+      // height: $feature-spotlight-img-height;
+      overflow: hidden;
+      @include span-columns(10 of 18);
+      // @include shift(2);
     }
-    @include breakpoint($laptop){
-      height: $feature-spotlight-img-height;
-      overflow:hidden;
-      @include span-columns(6);
-      @include shift(2);
+    img{
+      width:100%;
     }
   }
   &__text{
     @include span-columns(18);
     @include breakpoint($tablet){
-      @include span-columns(10);
+      @include span-columns(8 of 18);
     }
-    @include breakpoint($laptop){
-      @include span-columns(8);
-    }
+    // @include breakpoint($laptop){
+    //   @include span-columns(8);
+    // }
 
     p{
       font-weight: $body-light;
