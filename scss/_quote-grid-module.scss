@@ -51,6 +51,6 @@ $quote-card-height: $baseline * 36; //216px
   }
   h2{
     @include fill-parent;
-    margin-bottom: $baseline *3;
+    margin-bottom: $baseline *6;
   }
 }

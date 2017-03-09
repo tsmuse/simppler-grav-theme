@@ -8,7 +8,7 @@ footer{
   padding:$baseline * 4;
   @include breakpoint($laptop){
     min-height:100px;
-    padding:$baseline *10;
+    padding:$baseline *7 $baseline *10 $baseline $baseline *10;
   }
 }
 .footer__grid{

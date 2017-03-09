@@ -102,6 +102,7 @@ body{
 // this should be over written as needed
 .grid{
   @include outer-container($grid-max-width);//initialize the neat grid
+  
   padding:0 $baseline*4;
   @include breakpoint($laptop){
       padding: ($baseline) ($baseline * 8) ($baseline) ($baseline * 8);

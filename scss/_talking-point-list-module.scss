@@ -1,9 +1,11 @@
  .tp-list{
   @extend .grid;
   @include clearfix;
+  margin-bottom:$baseline * 3;
 
   &__title{
     @include fill-parent;
+    margin-bottom: $baseline * 2;
   }
   &__intro{
     @include fill-parent;
