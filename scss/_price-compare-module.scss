@@ -51,6 +51,8 @@ $tier-offset:1.5;
       }
       &__cta{
         @extend .button--secondary;
+        display:inline-block;
+        text-align: center;
         font-size: 18px;
         margin: 0 0 ($baseline * 3) 0;
         padding: $baseline;
