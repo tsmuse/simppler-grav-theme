@@ -1,0 +1,39 @@
+.blue-callout {
+  @extend .color-bg;
+  margin-bottom: $baseline * 4;
+
+  .callout {
+    padding: ($baseline * 4) 20px;
+
+    @include breakpoint($tablet){
+      padding: ($baseline * 5) 20px;
+    }
+
+    @include breakpoint($laptop){
+      padding: ($baseline * 9) 20px;
+    }
+  }
+
+    p {
+      font-weight: $body-light;
+      color: lighten($lightblue, 20%);
+      font-size: 21px;
+      letter-spacing: 1px;
+      line-height: $baseline * 5;
+      margin: 0 auto;
+      text-align: center;
+
+      @include breakpoint($tablet)
+      {
+        font-size: 24px;
+        letter-spacing: 0.8px;
+        line-height: $baseline * 6;
+      }
+
+      @include breakpoint($laptop){
+        font-size: 26px;
+        letter-spacing: 0.8px;
+        max-width: 780px;
+    }
+  }
+}

@@ -8,7 +8,7 @@ $feature-spotlight-img-height: 300px;
 .feature-spotlight{
   @extend .grid;
   @include clearfix;
-  margin-bottom:$baseline * 3;
+  margin-bottom:$baseline * 8;
   // @extend .grid;
   // padding:$baseline * 2;
   // @include breakpoint($laptop){
