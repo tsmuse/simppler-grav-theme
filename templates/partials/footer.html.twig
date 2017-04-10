@@ -10,7 +10,6 @@
       </div>
     </div>
     <div class="footer__links">
-      <h2 class="footer__links__title">hello@simppler.com</h2>
       {% set social_count = site.social|length %}
       {% set first_half = ((social_count / 2)|round) - 1 %}
       <ul class="footer__links__list--left">
@@ -43,6 +42,7 @@
             </li>
         {% endfor %}
       </ul>
+      <h2 class="footer__links__title">hello@simppler.com</h2>
     </div>
   </div>
   <div class="footer__nav">

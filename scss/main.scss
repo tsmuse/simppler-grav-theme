@@ -352,13 +352,17 @@ ul, ol,
 .one-line-list{
   padding:0 0 0 12px;
   margin:0 0 ($baseline-grid-size * 3) 0;
+}
+.one-line-list, ol{
   list-style:none;
+}
+ul{
+  list-style: square;
 }
 
 ul li,
 .one-line-list__item{
   padding: 0 0 $baseline-grid-size 0;
-
   // NOTE: specific typeographic styles are set on each individual instance of a .one-line-list__item
 }
 
